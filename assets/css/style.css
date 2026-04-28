@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap');
 
 :root {
-    --primary: #D4AF37; /* Gold */
+    --primary: #D4AF37;
+    /* Gold */
     --primary-dark: #B8962E;
-    --secondary: #1A365D; /* Deep Blue */
-    --accent: #2D5A27; /* Forest Green */
+    --secondary: #1A365D;
+    /* Deep Blue */
+    --accent: #2D5A27;
+    /* Forest Green */
     --text-dark: #1F2937;
     --text-light: #F9FAFB;
     --bg-light: #FFFFFF;
@@ -21,6 +24,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -30,7 +34,10 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, .font-heading {
+h1,
+h2,
+h3,
+.font-heading {
     font-family: 'Playfair Display', serif;
 }
 
@@ -139,7 +146,7 @@ nav.scrolled .logo-text-main {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.3) 100%), url('../images/hero.png');
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0.3) 100%), url('../images/hero.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -217,7 +224,7 @@ section {
     background: var(--primary);
 }
 
-/* Mission & Vision Cards */
+/* Vision Grid */
 .vision-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -235,7 +242,7 @@ section {
 .card:hover {
     background: white;
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--primary);
 }
 
@@ -278,7 +285,7 @@ section {
 }
 
 .page-header {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero.png');
     background-size: cover;
     background-position: center;
     padding: 180px 10% 100px;
@@ -342,12 +349,12 @@ section {
     align-items: center;
     gap: 20px;
     transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .board-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     border-color: var(--primary);
 }
 
@@ -438,6 +445,7 @@ footer {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -540,7 +548,8 @@ footer {
 
     /* Hamburger → X animation */
     .mobile-toggle.active .fa-bars::before {
-        content: '\f00d'; /* Font Awesome X icon */
+        content: '\f00d';
+        /* Font Awesome X icon */
     }
 }
 
@@ -734,7 +743,7 @@ body.menu-open {
         margin: 0 auto;
     }
 
-    .member-card-layout > div:last-child {
+    .member-card-layout>div:last-child {
         min-width: unset !important;
         width: 100%;
     }
@@ -768,14 +777,14 @@ body.menu-open {
         overflow: hidden;
     }
 
-    .event-card-layout > div:first-child {
+    .event-card-layout>div:first-child {
         min-width: unset !important;
         padding: 25px !important;
         flex-direction: row !important;
         gap: 10px;
     }
 
-    .event-card-layout > div:last-child {
+    .event-card-layout>div:last-child {
         min-width: unset !important;
         padding: 25px !important;
     }
@@ -786,7 +795,7 @@ body.menu-open {
     }
 
     /* --- Past Events Section --- */
-    #past-events .reveal > div {
+    #past-events .reveal>div {
         padding: 25px !important;
     }
 
@@ -797,77 +806,6 @@ body.menu-open {
     /* --- Scripture Cards --- */
     .scripture-grid {
         grid-template-columns: 1fr !important;
-    }
-
-    /* --- Four Pillars --- */
-    .pillars-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 20px !important;
-    }
-
-    .pillars-grid .pillar-item {
-        padding: 25px 15px !important;
-    }
-
-    /* --- Two Column Grids (Membership & Contact) --- */
-    .two-col-grid {
-        grid-template-columns: 1fr !important;
-        gap: 30px !important;
-    }
-
-    /* --- Contact Form --- */
-    .two-col-grid form {
-        width: 100%;
-    }
-
-    /* --- Bylaws --- */
-    .bylaws-content {
-        padding: 30px !important;
-    }
-
-    /* --- About Page Sections --- */
-    #mission-vision h2[style] {
-        font-size: 2rem !important;
-    }
-
-    #mission-vision .reveal > div[style*="grid"] {
-        grid-template-columns: 1fr !important;
-    }
-
-    /* --- Footer --- */
-    footer {
-        padding: 50px 5%;
-    }
-
-    .footer-logo img {
-        height: 60px;
-    }
-
-    .footer-links {
-        gap: 1.5rem;
-    }
-
-    /* --- Buttons --- */
-    .btn-primary {
-        padding: 0.8rem 2rem;
-        font-size: 0.85rem;
-    }
-
-    /* --- Nav on scrolled pages --- */
-    nav {
-        padding: 1rem 5%;
-    }
-
-    nav .logo-container img {
-        height: 45px;
-    }
-
-    nav.scrolled .logo-container img {
-        height: 40px;
-    }
-
-    .logo-text-main {
-        font-size: 1.2rem;
     }
 }
 
@@ -923,7 +861,7 @@ body.menu-open {
 
     /* --- Programs --- */
     .program-image {
-        height: 200px;
+        height: 250px;
     }
 
     .program-content h2,
@@ -937,7 +875,7 @@ body.menu-open {
     }
 
     .member-card-layout .member-avatar {
-        width: 100px !important;
+        width: 1000px !important;
         height: 120px !important;
     }
 
@@ -947,15 +885,15 @@ body.menu-open {
     }
 
     /* --- Events --- */
-    .event-card-layout > div:first-child {
+    .event-card-layout>div:first-child {
         padding: 20px !important;
     }
 
-    .event-card-layout > div:first-child span:first-child {
+    .event-card-layout>div:first-child span:first-child {
         font-size: 2rem !important;
     }
 
-    .event-card-layout > div:last-child {
+    .event-card-layout>div:last-child {
         padding: 20px !important;
     }
 
@@ -965,7 +903,7 @@ body.menu-open {
     }
 
     /* --- Past Events --- */
-    #past-events .reveal > div {
+    #past-events .reveal>div {
         padding: 20px !important;
     }
 
@@ -1033,7 +971,7 @@ body.menu-open {
     }
 
     /* --- Sponsor/Info Boxes --- */
-    .two-col-grid > div[style*="padding: 50px"] {
+    .two-col-grid>div[style*="padding: 50px"] {
         padding: 25px !important;
     }
 
