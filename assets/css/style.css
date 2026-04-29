@@ -679,6 +679,16 @@ body.menu-open {
         font-size: 2rem;
     }
 
+    /* --- Grids --- */
+    .two-col-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+
+    .two-col-grid > div {
+        width: 100% !important;
+    }
+
     /* --- Page Headers --- */
     .page-header {
         padding: 120px 5% 60px !important;
@@ -731,9 +741,11 @@ body.menu-open {
     .member-card-layout {
         flex-direction: column !important;
         align-items: center !important;
-        gap: 25px !important;
-        padding: 25px !important;
+        gap: 20px !important;
+        padding: 25px 15px !important;
         text-align: center;
+        width: 100% !important;
+        overflow: hidden;
     }
 
     .member-card-layout .member-avatar {
@@ -875,8 +887,21 @@ body.menu-open {
     }
 
     .member-card-layout .member-avatar {
-        width: 1000px !important;
-        height: 120px !important;
+        width: 140px !important;
+        height: 160px !important;
+        margin-bottom: 10px;
+    }
+
+    .member-card-layout {
+        padding: 20px 15px !important;
+    }
+
+    .member-card-layout h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .member-card-layout p {
+        font-size: 0.95rem !important;
     }
 
     .member-card-layout h3,
@@ -971,8 +996,14 @@ body.menu-open {
     }
 
     /* --- Sponsor/Info Boxes --- */
-    .two-col-grid>div[style*="padding: 50px"] {
-        padding: 25px !important;
+    .two-col-grid>div[style*="padding: 50px"],
+    #contact form[style*="padding: 40px"],
+    #why-join-us div[style*="padding: 60px"] {
+        padding: 25px 20px !important;
+    }
+
+    #why-join-us h2, #why-join-us p {
+        text-align: left !important;
     }
 
     /* --- Buttons --- */
