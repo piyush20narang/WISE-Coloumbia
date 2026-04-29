@@ -575,6 +575,7 @@ body.menu-open {
     gap: 40px;
     align-items: flex-start;
     flex-wrap: wrap;
+    padding: 40px;
 }
 
 /* Event card layout */
