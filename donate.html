@@ -14,6 +14,19 @@
       src="https://www.paypal.com/sdk/js?client-id=BAA_ZUvanOqjpKIJg8n-EbF3j1rIr1fL7RzuGAZsSD-1ho8hcJkP6hfw0YHKD29WqVguZsukoMQBX1do_Q&components=hosted-buttons&enable-funding=venmo&currency=USD"
       crossorigin="anonymous" async>
     </script>
+    <style>
+        #paypal-container-8S7R9DAUZCV8E {
+            text-align: center;
+            width: 100% !important;
+            min-width: 300px !important;
+        }
+        #paypal-container-8S7R9DAUZCV8E * {
+            box-sizing: border-box !important;
+            letter-spacing: normal !important;
+            word-spacing: normal !important;
+            text-transform: none !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -60,11 +73,13 @@
                     <h2 class="font-heading" style="color: var(--secondary); font-size: 2.8rem; margin-bottom: 25px;">Support Our Mission</h2>
                     <p style="margin-bottom: 50px; line-height: 1.8; font-size: 1.1rem; color: #64748B;">WISE Columbia, Inc. is a 501(c)(3) nonprofit organization. Your generous contributions enable us to provide value-based spiritual education, maintain our programs, and serve the community. All donations are tax-deductible.</p>
                     
-                    <div style="background: white; padding: 60px 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; min-height: 300px; justify-content: center;">
-                        <!-- PayPal Button Container -->
-                        <div id="paypal-container-8S7R9DAUZCV8E"></div>
+                    <div style="background: white; padding: 60px 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px;">
+                            <!-- PayPal Button Container -->
+                            <div id="paypal-container-8S7R9DAUZCV8E" style="width: 100%; max-width: 400px;"></div>
+                        </div>
                         
-                        <p style="margin-top: 30px; font-size: 0.9rem; color: #94A3B8;">Secure payment processed by PayPal</p>
+                        <p style="margin-top: 30px; font-size: 0.9rem; color: #94A3B8; text-align: center;">Secure payment processed by PayPal</p>
                     </div>
                 </div>
             </div>
