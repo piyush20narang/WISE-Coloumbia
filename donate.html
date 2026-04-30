@@ -10,10 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- PayPal SDK -->
-    <script 
-      src="https://www.paypal.com/sdk/js?client-id=BAA_ZUvanOqjpKIJg8n-EbF3j1rIr1fL7RzuGAZsSD-1ho8hcJkP6hfw0YHKD29WqVguZsukoMQBX1do_Q&components=hosted-buttons&enable-funding=venmo&currency=USD"
-      crossorigin="anonymous" async>
-    </script>
+    <script src="https://www.paypal.com/sdk/js?client-id=BAA_ZUvanOqjpKIJg8n-EbF3j1rIr1fL7RzuGAZsSD-1ho8hcJkP6hfw0YHKD29WqVguZsukoMQBX1do_Q&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
     <style>
         #paypal-container-8S7R9DAUZCV8E {
             text-align: center;
@@ -106,13 +103,20 @@
     <script src="assets/js/script.js"></script>
     
     <script>
-      // PayPal Hosted Button Rendering
-      document.addEventListener("DOMContentLoaded", function() {
-          if (window.paypal) {
+      // PayPal Hosted Button Rendering with Retry Mechanism
+      function initPayPalButton() {
+          if (typeof paypal !== 'undefined' && paypal.HostedButtons) {
               paypal.HostedButtons({
                 hostedButtonId: "8S7R9DAUZCV8E",
               }).render("#paypal-container-8S7R9DAUZCV8E")
+          } else {
+              console.log("Waiting for PayPal SDK...");
+              setTimeout(initPayPalButton, 200);
           }
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+          initPayPalButton();
       });
     </script>
 </body>
