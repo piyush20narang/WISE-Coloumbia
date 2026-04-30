@@ -144,18 +144,28 @@
     <script>
       // PayPal Button Initializer
       function initPayPalButtons() {
+          console.log("Initializing PayPal Buttons...");
+          
           // Check if SDK is loaded
           if (typeof paypal === 'undefined') {
-              console.log("Waiting for PayPal SDK...");
-              setTimeout(initPayPalButtons, 200);
+              console.log("Waiting for PayPal SDK to load...");
+              setTimeout(initPayPalButtons, 500);
               return;
           }
 
           // 1. Initialize Hosted Button (Custom Amount)
           if (paypal.HostedButtons) {
-              paypal.HostedButtons({
-                hostedButtonId: "8S7R9DAUZCV8E",
-              }).render("#paypal-container-8S7R9DAUZCV8E");
+              try {
+                  const customContainer = document.querySelector("#paypal-container-8S7R9DAUZCV8E");
+                  if (customContainer && customContainer.innerHTML === "") {
+                      paypal.HostedButtons({
+                        hostedButtonId: "8S7R9DAUZCV8E",
+                      }).render("#paypal-container-8S7R9DAUZCV8E");
+                      console.log("Hosted Button rendered.");
+                  }
+              } catch (err) {
+                  console.error("Failed to render Hosted Button:", err);
+              }
           }
 
           // 2. Initialize Standard Buttons (Fixed Tiers)
@@ -167,37 +177,53 @@
               ];
 
               tiers.forEach(tier => {
-                  paypal.Buttons({
-                      style: {
-                          shape: 'pill',
-                          color: 'gold',
-                          layout: 'vertical',
-                          label: 'paypal'
-                      },
-                      createOrder: (data, actions) => {
-                          return actions.order.create({
-                              purchase_units: [{
-                                  description: `WISE Columbia Donation - ${tier.label} Tier`,
-                                  amount: {
-                                      currency_code: 'USD',
-                                      value: tier.amount
-                                  }
-                              }]
-                          });
-                      },
-                      onApprove: (data, actions) => {
-                          return actions.order.capture().then(details => {
-                              alert(`Thank you for your generous donation of $${tier.amount}, ${details.payer.name.given_name}!`);
-                          });
+                  try {
+                      const containerSelector = `#paypal-button-container-${tier.id}`;
+                      const container = document.querySelector(containerSelector);
+                      
+                      if (container && container.innerHTML === "") {
+                          paypal.Buttons({
+                              style: {
+                                  shape: 'pill',
+                                  color: 'gold',
+                                  layout: 'vertical',
+                                  label: 'paypal'
+                              },
+                              createOrder: (data, actions) => {
+                                  return actions.order.create({
+                                      purchase_units: [{
+                                          description: `WISE Columbia Donation - ${tier.label} Tier`,
+                                          amount: {
+                                              currency_code: 'USD',
+                                              value: tier.amount
+                                          }
+                                      }]
+                                  });
+                              },
+                              onApprove: (data, actions) => {
+                                  return actions.order.capture().then(details => {
+                                      alert(`Thank you for your generous donation of $${tier.amount}, ${details.payer.name.given_name}!`);
+                                  });
+                              },
+                              onError: (err) => {
+                                  console.error(`PayPal Error for ${tier.label} tier:`, err);
+                              }
+                          }).render(containerSelector);
+                          console.log(`${tier.label} button rendered.`);
                       }
-                  }).render(`#paypal-button-container-${tier.id}`);
+                  } catch (err) {
+                      console.error(`Failed to render ${tier.label} button:`, err);
+                  }
               });
           }
       }
 
-      document.addEventListener("DOMContentLoaded", function() {
+      // Start initialization when DOM is ready
+      if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initPayPalButtons);
+      } else {
           initPayPalButtons();
-      });
+      }
     </script>
 </body>
 </html>
