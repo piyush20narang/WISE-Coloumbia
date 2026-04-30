@@ -65,12 +65,39 @@
     <!-- Donate Content -->
     <section id="donate">
         <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
                 <div class="reveal">
-                    <h2 class="font-heading" style="color: var(--secondary); font-size: 2.8rem; margin-bottom: 25px;">Support Our Mission</h2>
-                    <p style="margin-bottom: 50px; line-height: 1.8; font-size: 1.1rem; color: #64748B;">WISE Columbia, Inc. is a 501(c)(3) nonprofit organization. Your generous contributions enable us to provide value-based spiritual education, maintain our programs, and serve the community. All donations are tax-deductible.</p>
+                    <h2 class="font-heading" style="color: var(--secondary); font-size: 3rem; margin-bottom: 10px;">Support the Mission</h2>
+                    <p style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 1.1rem; margin-bottom: 25px;">Donate & Sponsor</p>
+                    <p style="margin-bottom: 60px; line-height: 1.8; font-size: 1.2rem; color: #64748B; max-width: 800px; margin-left: auto; margin-right: auto;">Your generosity helps us spread spiritual education, support youth programs, and serve the Columbia community. WISE Columbia is a 501(c)(3) tax-exempt organization — all donations are tax-deductible.</p>
                     
-                    <div style="background: white; padding: 60px 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                    <!-- Giving Levels -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 80px;">
+                        <!-- Friend -->
+                        <div style="background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-top: 6px solid var(--primary); transition: transform 0.3s ease;">
+                            <h3 class="font-heading" style="color: var(--secondary); margin-bottom: 10px; font-size: 1.8rem;">Friend</h3>
+                            <p style="font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 20px;">$25+</p>
+                            <p style="font-size: 1rem; color: #64748B; line-height: 1.6;">Support our weekly Bhagavad Gita sessions and community outreach programs.</p>
+                        </div>
+                        <!-- Sponsor -->
+                        <div style="background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-top: 6px solid var(--secondary); transition: transform 0.3s ease;">
+                            <h3 class="font-heading" style="color: var(--secondary); margin-bottom: 10px; font-size: 1.8rem;">Sponsor</h3>
+                            <p style="font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 20px;">$108+</p>
+                            <p style="font-size: 1rem; color: #64748B; line-height: 1.6;">Sponsor a program — Hari Bol Beats, Gita for Girls, or a community festival event.</p>
+                        </div>
+                        <!-- Benefactor -->
+                        <div style="background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-top: 6px solid var(--accent); transition: transform 0.3s ease;">
+                            <h3 class="font-heading" style="color: var(--secondary); margin-bottom: 10px; font-size: 1.8rem;">Benefactor</h3>
+                            <p style="font-size: 2.2rem; font-weight: 800; color: var(--primary); margin-bottom: 20px;">$500+</p>
+                            <p style="font-size: 1rem; color: #64748B; line-height: 1.6;">Help fund our sustainable farming vision and vocational spiritual education center.</p>
+                        </div>
+                    </div>
+
+                    <div style="max-width: 600px; margin: 0 auto; background: white; padding: 60px 40px; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.06); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));"></div>
+                        <h3 class="font-heading" style="font-size: 2rem; color: var(--secondary); margin-bottom: 15px;">Custom Amount</h3>
+                        <p style="margin-bottom: 35px; color: #64748B;">Enter your desired contribution amount below.</p>
+                        
                         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 200px;">
                             <!-- PayPal Button Container -->
                             <div id="paypal-container-8S7R9DAUZCV8E" style="width: 100%; max-width: 400px;"></div>
@@ -79,7 +106,7 @@
                         <!-- QR Code Section -->
                         <div style="margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--bg-muted); width: 100%;">
                             <h4 class="font-heading" style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 20px;">Or Scan to Donate</h4>
-                            <div style="background: white; padding: 15px; display: inline-block; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 15px;">
+                            <div style="background: white; padding: 15px; display: inline-block; border-radius: 20px; border: 1px solid var(--bg-muted); margin-bottom: 15px;">
                                 <img src="assets/images/paypal_qr.png" alt="PayPal QR Code" style="width: 220px; display: block;">
                             </div>
                             <p style="font-size: 0.95rem; color: #64748B; max-width: 300px; margin: 0 auto;">Open your PayPal app and scan the code above for a quick donation.</p>
