@@ -13,6 +13,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        .verse-box {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding: 60px 80px;
+            background: #fff9f0;
+            border-radius: 30px;
+            border-left: 6px solid var(--primary);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+
+        .shlok-text {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            font-style: italic;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            font-family: var(--font-heading);
+        }
+
+        .translation-text {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #64748B;
+            font-style: normal;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .verse-box {
+                padding: 40px 25px;
+                margin: 30px 15px 0;
+                border-left-width: 4px;
+            }
+
+            .shlok-text {
+                font-size: 1.15rem;
+                margin-bottom: 20px;
+                line-height: 1.6;
+                letter-spacing: 0.5px;
+            }
+
+            .translation-text {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -63,17 +115,15 @@
                     Programs</h2>
                 <div style="width: 60px; height: 3px; background: var(--primary); margin: 20px auto;"></div>
 
-                <div class="verse-box"
-                    style="max-width: 1100px; margin: 40px auto 0; padding: 60px 80px; background: #fff9f0; border-radius: 30px; border-left: 6px solid var(--primary); box-shadow: 0 15px 50px rgba(0,0,0,0.04); text-align: center;">
-                    <p class="font-heading"
-                        style="font-size: 1.6rem; color: var(--secondary); font-style: italic; font-weight: 800; margin-bottom: 30px; line-height: 1.8; letter-spacing: 1px;">
+                <div class="verse-box">
+                    <p class="shlok-text">
                         sa vai puṁsāṁ paro dharmo<br>
                         yato bhaktir adhokṣaje<br>
                         ahaituky apratihatā<br>
                         yayātmā suprasīdati
                     </p>
                     <div style="width: 60px; height: 2px; background: #e2e8f0; margin: 0 auto 30px;"></div>
-                    <p style="font-size: 1.2rem; line-height: 2; color: #64748B; font-style: normal; max-width: 900px; margin: 0 auto;">
+                    <p class="translation-text">
                         The supreme occupation [dharma] for all humanity is that by which men can attain to loving
                         devotional service unto the transcendent Lord. Such devotional service must be unmotivated and
                         uninterrupted to completely satisfy the self.
