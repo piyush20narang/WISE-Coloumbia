@@ -797,7 +797,7 @@ body.menu-open {
         gap: 10px;
     }
 
-    .event-card-layout>div:last-child {
+    .event-card-layout>div:not(:first-child) {
         min-width: unset !important;
         padding: 25px !important;
     }
@@ -919,7 +919,7 @@ body.menu-open {
         font-size: 2rem !important;
     }
 
-    .event-card-layout>div:last-child {
+    .event-card-layout>div:not(:first-child) {
         padding: 20px !important;
     }
 
