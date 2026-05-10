@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | WISE</title>
+    <meta name="description"
+        content="Gallery of WISE Columbia events, festivals, and community programs.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="logo-container">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none; gap: 1rem;">
+                <img src="assets/images/logo.png" alt="WISE Logo">
+                <div class="logo-text">
+                    <span class="font-outfit logo-text-main">W.I.S.E</span>
+                    <p class="logo-text-sub">Columbia</p>
+                </div>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="programs.html">Programs & Events</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="join-us.html">Why Join Us</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donate.html" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">Donate</a></li>
+        </ul>
+        <div class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    <div class="mobile-overlay"></div>
+
+    <!-- Header Section -->
+    <section class="page-header" style="background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('assets/images/hero.png'); background-size: cover; background-position: center; padding: 160px 10% 100px;">
+        <div class="container" style="text-align: center; color: white;">
+            <h1 class="font-heading" style="font-size: 3.5rem; margin-bottom: 15px;">Our Gallery</h1>
+            <div style="width: 80px; height: 4px; background: var(--primary); margin: 0 auto 20px;"></div>
+            <p class="font-outfit" style="font-size: 1.25rem; opacity: 0.95; max-width: 700px; margin: 0 auto;">Moments of devotion, service, and community at WISE Columbia.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="gallery-container reveal">
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/IMG_6033.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/P1016393.JPG" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/IMG_7012.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/P1016405.JPG" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/IMG_7018.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/P1016410.JPG" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/2024-09-14_15-39-37_314.jpg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/P1016459.JPG" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/2024-10-26_13-46-26_743.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/P1016462.JPG" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/2024-10-26_16-07-03_752.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/P1016463.JPG" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/2025-02-15_16-10-28_158.jpeg" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/P1016465.JPG" alt="Gallery Image">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/P1016329.JPG" alt="Gallery Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-close"><i class="fas fa-times"></i></div>
+        <div class="lightbox-nav lightbox-prev" id="prev-btn"><i class="fas fa-chevron-left"></i></div>
+        <div class="lightbox-nav lightbox-next" id="next-btn"><i class="fas fa-chevron-right"></i></div>
+        <img src="" alt="Complete View" class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="WISE Logo">
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="programs.html">Programs & Events</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="resources.html">Resources</a>
+            <a href="join-us.html">Why Join Us</a>
+            <a href="bylaws.html">Bylaws</a>
+            <a href="contact.html">Contact</a>
+            <a href="donate.html">Donate</a>
+        </div>
+        <p style="color: #64748B; font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 WISE, Columbia, Inc. A 501(c)(3) Nonprofit Organization.</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Lightbox Functionality with Navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const galleryItems = Array.from(document.querySelectorAll('.gallery-item img'));
+            const lightboxClose = document.querySelector('.lightbox-close');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            let currentIndex = 0;
+
+            const showImage = (index) => {
+                if (index < 0) index = galleryItems.length - 1;
+                if (index >= galleryItems.length) index = 0;
+                currentIndex = index;
+                lightboxImg.style.opacity = '0';
+                setTimeout(() => {
+                    lightboxImg.src = galleryItems[currentIndex].src;
+                    lightboxImg.style.opacity = '1';
+                }, 150);
+            };
+
+            galleryItems.forEach((img, index) => {
+                img.parentElement.addEventListener('click', () => {
+                    currentIndex = index;
+                    lightboxImg.src = img.src;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden'; 
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto'; 
+                setTimeout(() => { lightboxImg.src = ''; }, 300); 
+            };
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showImage(currentIndex - 1);
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showImage(currentIndex + 1);
+            });
+
+            lightboxClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeLightbox();
+            });
+            
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+                if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+            });
+        });
+    </script>
+</body>
+
+</html>
