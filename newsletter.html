@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter | WISE Columbia</title>
+    <meta name="description" content="Read our latest WISE Columbia newsletter.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Markdown renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Supabase config (must come after supabase-js CDN) -->
+    <script src="assets/js/supabase-config.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="scrolled">
+        <div class="logo-container">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none; gap: 1rem;">
+                <img src="assets/images/logo.png" alt="WISE Logo">
+                <div class="logo-text">
+                    <span class="font-outfit logo-text-main">W.I.S.E</span>
+                    <p class="logo-text-sub">Columbia</p>
+                </div>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="programs.html">Programs &amp; Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="resources.html" class="active">Resources</a></li>
+            <li><a href="join-us.html">Why Join Us</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donate.html" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">Donate</a></li>
+        </ul>
+        <div class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    <div class="mobile-overlay"></div>
+
+    <!-- Page Header (dynamically populated) -->
+    <section class="nl-page-header" id="nl-header">
+        <div class="container">
+            <!-- Loading spinner -->
+            <div id="nl-header-loading">
+                <div class="nl-spinner"></div>
+            </div>
+            <!-- Revealed after data loads -->
+            <div id="nl-header-inner" style="display: none;">
+                <div class="nl-breadcrumb">
+                    <a href="resources#newsletters" class="nl-breadcrumb-link">
+                        <i class="fas fa-arrow-left"></i> All Newsletters
+                    </a>
+                </div>
+                <h1 class="font-heading" id="nl-title" style="font-size: 2.8rem; margin: 0.5rem 0 0; color: white; line-height: 1.2;"></h1>
+                <div style="width: 70px; height: 4px; background: var(--primary); margin: 1rem 0;"></div>
+                <div class="nl-header-meta">
+                    <span id="nl-date" class="font-outfit nl-date-text">
+                        <i class="fas fa-calendar-alt" style="margin-right: 6px; opacity: 0.7;"></i>
+                    </span>
+                    <span id="nl-category" class="nl-badge" style="display: none;"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Content -->
+    <section id="newsletter-content">
+        <div class="container">
+
+            <!-- Loading state -->
+            <div id="nl-content-loading" class="nl-loading-state">
+                <div class="nl-spinner"></div>
+                <p class="font-outfit">Loading newsletter…</p>
+            </div>
+
+            <!-- Error state -->
+            <div id="nl-error" class="nl-error-state" style="display: none;">
+                <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: #CBD5E1;"></i>
+                <p id="nl-error-msg" class="font-outfit" style="font-size: 1.05rem;"></p>
+                <a href="resources#newsletters" class="btn-primary" style="display: inline-block; margin-top: 1rem;">
+                    ← Back to Newsletters
+                </a>
+            </div>
+
+            <!-- Two-column content grid (revealed after load) -->
+            <div id="nl-content-grid" class="newsletter-content-grid" style="display: none;">
+
+                <!-- Left: Body text -->
+                <div>
+                    <div id="nl-body" class="newsletter-body"></div>
+                    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--bg-muted);">
+                        <a href="resources#newsletters" class="nl-back-link">
+                            <i class="fas fa-arrow-left"></i> Back to Newsletters
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Sticky photo carousel -->
+                <div class="newsletter-carousel-wrapper">
+                    <div class="newsletter-carousel" id="nl-carousel">
+                        <div class="carousel-header">
+                            <span class="carousel-header-title">
+                                <i class="fas fa-images" style="margin-right: 8px;"></i>Photos
+                            </span>
+                            <span class="carousel-counter" id="carousel-counter">—</span>
+                        </div>
+                        <div class="carousel-image-container" id="carousel-img-wrap" style="cursor: zoom-in;" title="Click to view full size">
+                            <img id="carousel-img" src="" alt="" style="display: none;">
+                            <div class="carousel-zoom-hint" id="carousel-zoom-hint"><i class="fas fa-expand-alt"></i></div>
+                            <div class="carousel-empty" id="carousel-empty">
+                                <i class="fas fa-camera-retro"></i>
+                                <span>No photos for this newsletter</span>
+                            </div>
+                        </div>
+                        <p class="carousel-caption" id="carousel-caption"></p>
+                        <div class="carousel-controls">
+                            <button class="carousel-btn" id="carousel-prev" disabled>
+                                <i class="fas fa-chevron-left"></i> Prev
+                            </button>
+                            <button class="carousel-btn" id="carousel-next" disabled>
+                                Next <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Image Lightbox -->
+    <div class="nl-lightbox" id="nl-lightbox">
+        <div class="nl-lightbox-close" id="nl-lightbox-close"><i class="fas fa-times"></i></div>
+        <div class="nl-lightbox-prev" id="nl-lightbox-prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="nl-lightbox-next" id="nl-lightbox-next"><i class="fas fa-chevron-right"></i></div>
+        <div class="nl-lightbox-inner">
+            <img id="nl-lightbox-img" src="" alt="">
+            <p class="nl-lightbox-caption" id="nl-lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="WISE Logo">
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="programs.html">Programs &amp; Events</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="resources.html">Resources</a>
+            <a href="join-us.html">Why Join Us</a>
+            <a href="bylaws.html">Bylaws</a>
+            <a href="contact.html">Contact</a>
+            <a href="donate.html">Donate</a>
+            <a href="sitemap.xml">Sitemap</a>
+        </div>
+        <p style="color: #64748B; font-size: 0.9rem; margin-top: 2rem;">&copy; 2026 WISE, Columbia, Inc. A 501(c)(3) Nonprofit Organization.</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // ============================================
+        // Newsletter Detail Page — Supabase Integration
+        // ============================================
+
+        let carouselImages = [];
+        let carouselIndex = 0;
+
+        const carouselImg    = document.getElementById('carousel-img');
+        const carouselEmpty  = document.getElementById('carousel-empty');
+        const carouselCounter = document.getElementById('carousel-counter');
+        const carouselCaption = document.getElementById('carousel-caption');
+        const carouselPrev   = document.getElementById('carousel-prev');
+        const carouselNext   = document.getElementById('carousel-next');
+
+        // --- Carousel Logic ---
+        function showCarouselSlide(index) {
+            if (!carouselImages.length) return;
+            if (index < 0) index = carouselImages.length - 1;
+            if (index >= carouselImages.length) index = 0;
+            carouselIndex = index;
+
+            carouselImg.style.opacity = '0';
+            setTimeout(() => {
+                carouselImg.src    = carouselImages[carouselIndex].url;
+                carouselImg.alt    = carouselImages[carouselIndex].caption || 'Newsletter photo';
+                carouselImg.style.opacity = '1';
+            }, 150);
+
+            carouselCounter.textContent = `${carouselIndex + 1} / ${carouselImages.length}`;
+            carouselCaption.textContent  = carouselImages[carouselIndex].caption || '';
+        }
+
+        function initCarousel(images) {
+            carouselImages = images;
+
+            if (!images.length) {
+                carouselImg.style.display   = 'none';
+                carouselEmpty.style.display = 'flex';
+                carouselCounter.textContent = '0 / 0';
+                return;
+            }
+
+            carouselEmpty.style.display = 'none';
+            carouselImg.style.display   = 'block';
+            showCarouselSlide(0);
+
+            carouselPrev.disabled = false;
+            carouselNext.disabled = false;
+            carouselPrev.addEventListener('click', () => showCarouselSlide(carouselIndex - 1));
+            carouselNext.addEventListener('click', () => showCarouselSlide(carouselIndex + 1));
+
+            // Show zoom hint on hover
+            const imgWrap = document.getElementById('carousel-img-wrap');
+            const zoomHint = document.getElementById('carousel-zoom-hint');
+            imgWrap.addEventListener('mouseenter', () => { if (zoomHint) zoomHint.style.opacity = '1'; });
+            imgWrap.addEventListener('mouseleave', () => { if (zoomHint) zoomHint.style.opacity = '0'; });
+
+            // Open lightbox on image click
+            imgWrap.addEventListener('click', () => {
+                if (!carouselImages.length || carouselImg.style.display === 'none') return;
+                openLightbox(carouselIndex);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (document.getElementById('nl-lightbox').classList.contains('active')) return; // lightbox handles its own keys
+                if (e.key === 'ArrowLeft')  showCarouselSlide(carouselIndex - 1);
+                if (e.key === 'ArrowRight') showCarouselSlide(carouselIndex + 1);
+            });
+
+            // --- Lightbox ---
+            const lightbox     = document.getElementById('nl-lightbox');
+            const lightboxImg  = document.getElementById('nl-lightbox-img');
+            const lightboxCap  = document.getElementById('nl-lightbox-caption');
+            const lbClose      = document.getElementById('nl-lightbox-close');
+            const lbPrev       = document.getElementById('nl-lightbox-prev');
+            const lbNext       = document.getElementById('nl-lightbox-next');
+            let lightboxIndex  = 0;
+
+            function openLightbox(index) {
+                lightboxIndex = index;
+                lightboxImg.src = carouselImages[lightboxIndex].url;
+                lightboxImg.alt = carouselImages[lightboxIndex].caption || '';
+                lightboxCap.textContent = carouselImages[lightboxIndex].caption || '';
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(() => { lightboxImg.src = ''; }, 300);
+            }
+
+            function lightboxNav(dir) {
+                lightboxIndex = (lightboxIndex + dir + carouselImages.length) % carouselImages.length;
+                lightboxImg.style.opacity = '0';
+                setTimeout(() => {
+                    lightboxImg.src = carouselImages[lightboxIndex].url;
+                    lightboxCap.textContent = carouselImages[lightboxIndex].caption || '';
+                    lightboxImg.style.opacity = '1';
+                    // Sync carousel to same index
+                    showCarouselSlide(lightboxIndex);
+                }, 150);
+            }
+
+            lbClose.addEventListener('click', closeLightbox);
+            lbPrev.addEventListener('click',  (e) => { e.stopPropagation(); lightboxNav(-1); });
+            lbNext.addEventListener('click',  (e) => { e.stopPropagation(); lightboxNav(1); });
+            lightbox.addEventListener('click', (e) => { if (e.target === lightbox || e.target === document.querySelector('.nl-lightbox-inner')) closeLightbox(); });
+
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape')      closeLightbox();
+                if (e.key === 'ArrowLeft')   lightboxNav(-1);
+                if (e.key === 'ArrowRight')  lightboxNav(1);
+            });
+        }
+
+        // --- Helpers ---
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const d = new Date(dateStr + 'T00:00:00');
+            return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function showError(msg) {
+            document.getElementById('nl-content-loading').style.display = 'none';
+            document.getElementById('nl-header-loading').style.display  = 'none';
+            const errEl = document.getElementById('nl-error');
+            errEl.style.display = 'flex';
+            document.getElementById('nl-error-msg').textContent = msg;
+        }
+
+        function renderNewsletter(newsletter, images) {
+            // Update browser tab title & meta
+            document.title = `${newsletter.title} | WISE Columbia`;
+            document.querySelector('meta[name="description"]').content =
+                newsletter.summary || `Read the WISE Columbia newsletter: ${newsletter.title}`;
+
+            // Populate header
+            document.getElementById('nl-title').textContent = newsletter.title;
+            const dateEl = document.getElementById('nl-date');
+            dateEl.innerHTML = `<i class="fas fa-calendar-alt" style="margin-right:6px;opacity:0.7;"></i>${formatDate(newsletter.date)}`;
+
+            if (newsletter.category) {
+                const catEl = document.getElementById('nl-category');
+                catEl.textContent    = newsletter.category;
+                catEl.style.display  = 'inline-block';
+            }
+
+            // If there's a cover image, update header background
+            if (newsletter.cover_image_url) {
+                document.getElementById('nl-header').style.backgroundImage =
+                    `linear-gradient(rgba(15,23,42,0.88),rgba(15,23,42,0.88)), url('${newsletter.cover_image_url}')`;
+            }
+
+            // Render markdown body
+            const bodyEl = document.getElementById('nl-body');
+            if (newsletter.body_md) {
+                bodyEl.innerHTML = marked.parse(newsletter.body_md);
+            } else {
+                bodyEl.innerHTML = '<p style="color:#64748B;font-style:italic;">No content available for this newsletter.</p>';
+            }
+
+            // Init photo carousel
+            initCarousel(images);
+
+            // Reveal content
+            document.getElementById('nl-content-loading').style.display = 'none';
+            document.getElementById('nl-header-loading').style.display  = 'none';
+            document.getElementById('nl-header-inner').style.display    = 'block';
+            document.getElementById('nl-content-grid').style.display    = 'grid';
+        }
+
+        // --- Main: Fetch from Supabase on page load ---
+        document.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const slug   = (params.get('slug') || '').trim();
+
+            if (!slug) {
+                showError('No newsletter specified.');
+                return;
+            }
+
+            // Guard: check if Supabase has been configured
+            if (typeof SUPABASE_URL === 'undefined' || SUPABASE_URL.includes('YOUR_PROJECT_ID')) {
+                showError('Supabase is not yet configured. Please update assets/js/supabase-config.js with your credentials.');
+                return;
+            }
+
+            try {
+                // Fetch newsletter record
+                const { data: newsletter, error: nlErr } = await supabaseClient
+                    .from('newsletters')
+                    .select('*')
+                    .eq('slug', slug)
+                    .eq('published', true)
+                    .single();
+
+                if (nlErr || !newsletter) {
+                    showError('Newsletter not found — it may not be published yet.');
+                    return;
+                }
+
+                // Fetch associated images
+                const { data: images } = await supabaseClient
+                    .from('newsletter_images')
+                    .select('*')
+                    .eq('newsletter_id', newsletter.id)
+                    .order('sort_order', { ascending: true });
+
+                renderNewsletter(newsletter, images || []);
+
+            } catch (err) {
+                console.error('Newsletter load error:', err);
+                showError('Failed to load newsletter. Please try again later.');
+            }
+        });
+    </script>
+
+</body>
+</html>

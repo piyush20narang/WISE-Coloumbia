@@ -55,10 +55,15 @@
     <section id="gallery">
         <div class="container">
             <!-- Tab Navigation -->
-            <div class="gallery-tabs-container reveal">
+            <div class="gallery-tabs-container reveal" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 40px;">
                 <div class="gallery-tabs">
                     <button class="gallery-tab-btn active" data-tab="photos">Photos</button>
                     <button class="gallery-tab-btn" data-tab="videos">Videos</button>
+                </div>
+                <!-- Category filter (shown only in Photos tab) -->
+                <div class="gallery-category-filter" id="gallery-category-filter" style="justify-content: center;">
+                    <button class="gallery-cat-btn active" id="cat-btn-all" data-cat="all">All</button>
+                    <!-- Dynamic category buttons added by JS from Supabase -->
                 </div>
             </div>
 
@@ -199,138 +204,168 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
     <script>
-        // Lightbox Functionality with Navigation
-        document.addEventListener('DOMContentLoaded', () => {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const galleryItems = Array.from(document.querySelectorAll('.gallery-item img'));
+        document.addEventListener('DOMContentLoaded', async () => {
+            const lightbox      = document.getElementById('lightbox');
+            const lightboxImg   = document.getElementById('lightbox-img');
             const lightboxClose = document.querySelector('.lightbox-close');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            
+            const prevBtn       = document.getElementById('prev-btn');
+            const nextBtn       = document.getElementById('next-btn');
+            const photoGallery  = document.getElementById('photo-gallery');
+            const videoGallery  = document.getElementById('video-gallery');
+            const categoryFilter = document.getElementById('gallery-category-filter');
+
             let currentIndex = 0;
 
-            const showImage = (index) => {
-                if (index < 0) index = galleryItems.length - 1;
-                if (index >= galleryItems.length) index = 0;
+            // --- Lightbox helpers ---
+            function getVisibleImgs() {
+                return Array.from(photoGallery.querySelectorAll('.gallery-item:not(.hidden) img'));
+            }
+
+            function showLightboxImage(index) {
+                const imgs = getVisibleImgs();
+                if (!imgs.length) return;
+                if (index < 0) index = imgs.length - 1;
+                if (index >= imgs.length) index = 0;
                 currentIndex = index;
                 lightboxImg.style.opacity = '0';
                 setTimeout(() => {
-                    lightboxImg.src = galleryItems[currentIndex].src;
+                    lightboxImg.src = imgs[currentIndex].src;
                     lightboxImg.style.opacity = '1';
                 }, 150);
-            };
-
-            galleryItems.forEach((img, index) => {
-                img.parentElement.addEventListener('click', () => {
-                    currentIndex = index;
-                    lightboxImg.src = img.src;
-                    lightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden'; 
-                });
-            });
+            }
 
             const closeLightbox = () => {
                 lightbox.classList.remove('active');
-                document.body.style.overflow = 'auto'; 
-                setTimeout(() => { lightboxImg.src = ''; }, 300); 
+                document.body.style.overflow = 'auto';
+                setTimeout(() => { lightboxImg.src = ''; }, 300);
             };
 
-            prevBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                showImage(currentIndex - 1);
+            // Event delegation — works for both static & dynamically added images
+            photoGallery.addEventListener('click', (e) => {
+                const item = e.target.closest('.gallery-item');
+                if (!item || item.classList.contains('hidden')) return;
+                const imgs = getVisibleImgs();
+                const clickedImg = item.querySelector('img');
+                currentIndex = imgs.indexOf(clickedImg);
+                lightboxImg.src = clickedImg.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
 
-            nextBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                showImage(currentIndex + 1);
-            });
-
-            lightboxClose.addEventListener('click', (e) => {
-                e.stopPropagation();
-                closeLightbox();
-            });
-            
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-
-            document.addEventListener('keydown', (e) => {
+            prevBtn.addEventListener('click',        (e) => { e.stopPropagation(); showLightboxImage(currentIndex - 1); });
+            nextBtn.addEventListener('click',        (e) => { e.stopPropagation(); showLightboxImage(currentIndex + 1); });
+            lightboxClose.addEventListener('click',  (e) => { e.stopPropagation(); closeLightbox(); });
+            lightbox.addEventListener('click',       (e) => { if (e.target === lightbox) closeLightbox(); });
+            document.addEventListener('keydown',     (e) => {
                 if (!lightbox.classList.contains('active')) return;
-                
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
-                if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+                if (e.key === 'Escape')      closeLightbox();
+                if (e.key === 'ArrowLeft')   showLightboxImage(currentIndex - 1);
+                if (e.key === 'ArrowRight')  showLightboxImage(currentIndex + 1);
             });
 
-            // Tab Switching Logic
+            // --- Category filter ---
+            function filterGallery(category) {
+                document.querySelectorAll('.gallery-cat-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.cat === category);
+                });
+                photoGallery.querySelectorAll('.gallery-item').forEach(item => {
+                    const itemCat = item.dataset.category || 'all';
+                    const show = (category === 'all' || itemCat === category);
+                    item.classList.toggle('hidden', !show);
+                });
+            }
+
+            document.getElementById('cat-btn-all').addEventListener('click', () => filterGallery('all'));
+
+            // --- Tab switching ---
             const tabButtons = document.querySelectorAll('.gallery-tab-btn');
-            const photoGallery = document.getElementById('photo-gallery');
-            const videoGallery = document.getElementById('video-gallery');
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.getAttribute('data-tab');
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
 
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetTab = button.getAttribute('data-tab');
-
-                    // Set active tab button style
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-
-                    // Show target gallery, hide other
-                    if (targetTab === 'photos') {
-                        photoGallery.style.display = 'block';
+                    if (target === 'photos') {
+                        photoGallery.style.display = '';
                         videoGallery.style.display = 'none';
-                        // Stop all playing videos if switching away from videos
+                        categoryFilter.style.display = 'flex';
                         stopAllVideos();
                     } else {
                         photoGallery.style.display = 'none';
                         videoGallery.style.display = 'grid';
+                        categoryFilter.style.display = 'none';
                     }
                 });
             });
 
-            // Play Video Inline (In-place) Logic
-            const videoCards = document.querySelectorAll('.video-card');
-            
-            videoCards.forEach(card => {
-                const thumbnailContainer = card.querySelector('.video-thumbnail-container');
+            // --- Video logic ---
+            function stopAllVideos() {
+                videoGallery.querySelectorAll('.video-thumbnail-container').forEach(container => {
+                    container.classList.remove('playing');
+                    const iframe = container.querySelector('iframe');
+                    if (iframe) iframe.remove();
+                });
+            }
+
+            document.querySelectorAll('.video-card').forEach(card => {
+                const thumb   = card.querySelector('.video-thumbnail-container');
                 const videoId = card.getAttribute('data-video-id');
-
-                thumbnailContainer.addEventListener('click', () => {
-                    // Check if already playing
-                    if (thumbnailContainer.querySelector('iframe')) return;
-
-                    // Stop other playing videos first
+                thumb.addEventListener('click', () => {
+                    if (thumb.querySelector('iframe')) return;
                     stopAllVideos();
-
-                    // Create iframe
                     const iframe = document.createElement('iframe');
                     iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`);
                     iframe.setAttribute('title', 'YouTube video player');
                     iframe.setAttribute('frameborder', '0');
                     iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
                     iframe.setAttribute('allowfullscreen', 'true');
-
-                    // Mark container as playing to hide thumbnail and button
-                    thumbnailContainer.classList.add('playing');
-
-                    // Append the iframe
-                    thumbnailContainer.appendChild(iframe);
+                    thumb.classList.add('playing');
+                    thumb.appendChild(iframe);
                 });
             });
 
-            // Helper to stop all running video iframes and restore thumbnail overlays
-            function stopAllVideos() {
-                const containers = videoGallery.querySelectorAll('.video-thumbnail-container');
-                containers.forEach(container => {
-                    container.classList.remove('playing');
-                    const iframe = container.querySelector('iframe');
-                    if (iframe) iframe.remove();
-                });
+            // --- Load newsletter images from Supabase ---
+            async function loadNewsletterImages() {
+                try {
+                    if (typeof SUPABASE_URL === 'undefined' || SUPABASE_URL.includes('YOUR_PROJECT_ID')) return;
+
+                    const { data: images, error } = await supabaseClient
+                        .from('newsletter_images')
+                        .select('id, url, caption, category')
+                        .order('newsletter_id');
+
+                    if (error || !images || !images.length) return;
+
+                    // Build unique category buttons
+                    const categories = [...new Set(images.map(img => img.category).filter(Boolean))];
+                    categories.forEach(cat => {
+                        const btn = document.createElement('button');
+                        btn.className    = 'gallery-cat-btn';
+                        btn.dataset.cat  = cat;
+                        btn.textContent  = cat;
+                        btn.addEventListener('click', () => filterGallery(cat));
+                        categoryFilter.appendChild(btn);
+                    });
+
+                    // Append images to photo gallery
+                    images.forEach(img => {
+                        const div = document.createElement('div');
+                        div.className         = 'gallery-item';
+                        div.dataset.category  = img.category || 'all';
+                        div.innerHTML = `<img src="${img.url}" alt="${img.caption || 'Gallery Image'}" loading="lazy">`;
+                        photoGallery.appendChild(div);
+                    });
+
+                } catch (err) {
+                    console.error('Gallery Supabase error:', err);
+                }
             }
+
+            await loadNewsletterImages();
         });
     </script>
 </body>

@@ -67,12 +67,12 @@
                             </a>
                         </li>
                         <li style="margin-bottom: 20px; border-bottom: 1px solid var(--bg-muted); padding-bottom: 15px;">
-                            <a href="#" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                            <a href="#newsletters" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
                                 <div style="width: 50px; height: 50px; background: var(--bg-muted); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
                                     <i class="fas fa-envelope-open-text"></i>
                                 </div>
                                 <div>
-                                    <h4 style="color: var(--secondary); font-weight: 700;">Newsletters</h4>
+                                    <h4 style="color: var(--secondary); font-weight: 700;">Newsletter Archive</h4>
                                     <p style="font-size: 0.85rem; color: #64748B;">Stay updated with our latest activities.</p>
                                 </div>
                             </a>
@@ -112,6 +112,24 @@
         </div>
     </section>
 
+    <!-- Newsletter Archive Section -->
+    <section id="newsletters">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2 class="font-heading">Newsletter Archive</h2>
+                <p class="font-outfit" style="color: #64748B; margin-top: 1rem; font-size: 1rem;">
+                    Stay updated with our latest activities, events, and community highlights.
+                </p>
+            </div>
+            <div id="newsletter-grid" class="newsletter-grid">
+                <div class="newsletter-loading">
+                    <div class="nl-spinner"></div>
+                    <p>Loading newsletters…</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-logo">
@@ -133,4 +151,81 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
+    <script>
+        // ============================================
+        // Newsletter Archive — Supabase Integration
+        // ============================================
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const d = new Date(dateStr + 'T00:00:00');
+            return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        async function loadNewsletters() {
+            const grid = document.getElementById('newsletter-grid');
+
+            // Guard: check if Supabase has been configured
+            if (typeof SUPABASE_URL === 'undefined' || SUPABASE_URL.includes('YOUR_PROJECT_ID')) {
+                grid.innerHTML = `
+                    <div class="newsletter-empty">
+                        <i class="fas fa-wrench" style="font-size:2.5rem;color:#CBD5E1;"></i>
+                        <p>Supabase not yet configured.<br>
+                        <a href="assets/js/supabase-config.js" style="color:var(--primary);">Update supabase-config.js</a> to publish newsletters.</p>
+                    </div>`;
+                return;
+            }
+
+            try {
+                const { data: newsletters, error } = await supabaseClient
+                    .from('newsletters')
+                    .select('id, title, slug, date, summary, category')
+                    .eq('published', true)
+                    .order('date', { ascending: false });
+
+                if (error) throw error;
+
+                if (!newsletters || newsletters.length === 0) {
+                    grid.innerHTML = `
+                        <div class="newsletter-empty">
+                            <i class="fas fa-envelope-open" style="font-size:2.5rem;color:#CBD5E1;"></i>
+                            <p>No newsletters yet — check back soon!</p>
+                        </div>`;
+                    return;
+                }
+
+                grid.innerHTML = newsletters.map(nl => `
+                    <a href="newsletter?slug=${encodeURIComponent(nl.slug)}" class="newsletter-card reveal">
+                        ${nl.category ? `<span class="newsletter-card-tag">${nl.category}</span>` : ''}
+                        <h3 class="newsletter-card-title font-heading">${nl.title}</h3>
+                        <p class="newsletter-card-date">
+                            <i class="fas fa-calendar-alt" style="margin-right:6px;color:var(--primary);"></i>
+                            ${formatDate(nl.date)}
+                        </p>
+                        ${nl.summary ? `<p class="newsletter-card-summary">${nl.summary}</p>` : ''}
+                        <span class="newsletter-card-link">Read More <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                `).join('');
+
+                // Trigger scroll-reveal on newly added cards
+                setTimeout(() => {
+                    document.querySelectorAll('.newsletter-card.reveal').forEach(el => {
+                        if (el.getBoundingClientRect().top < window.innerHeight) {
+                            el.classList.add('active');
+                        }
+                    });
+                }, 100);
+
+            } catch (err) {
+                console.error('Newsletter load error:', err);
+                grid.innerHTML = `<div class="newsletter-empty"><i class="fas fa-exclamation-circle" style="font-size:2rem;color:#CBD5E1;"></i><p>Failed to load newsletters. Please try again later.</p></div>`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadNewsletters);
+    </script>
 </body>
+</html>
