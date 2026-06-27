@@ -163,7 +163,9 @@ async function main() {
             const mimeType = getMimeType(localPath);
 
             // Upload request to Supabase Storage
-            const uploadRes = await fetch(`${supabaseUrl}/storage/v1/object/newsletter-images/${cleanFileName}`, {
+            const bucketName = '2026 Chariot Festival of Joy';
+            const encodedBucket = encodeURIComponent(bucketName);
+            const uploadRes = await fetch(`${supabaseUrl}/storage/v1/object/${encodedBucket}/${cleanFileName}`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${serviceRoleKey}`,
@@ -178,7 +180,7 @@ async function main() {
                 continue;
             }
 
-            const publicUrl = `${supabaseUrl}/storage/v1/object/public/newsletter-images/${cleanFileName}`;
+            const publicUrl = `${supabaseUrl}/storage/v1/object/public/${encodedBucket}/${cleanFileName}`;
             console.log(`  ✅ Uploaded. Public URL: ${publicUrl}`);
 
             dbRecords.push({
