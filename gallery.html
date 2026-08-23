@@ -7,6 +7,7 @@
     <title>Gallery | WISE</title>
     <meta name="description"
         content="Gallery of WISE Columbia events, festivals, and community programs.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -172,6 +173,32 @@
 <p>Part 3 of the Rejoice with Krishna series.</p>
                         </div>
                     </div>
+                    <!-- Video Card 6 -->
+                    <div class="video-card" data-video-id="mtvKyci6L0w">
+                        <div class="video-thumbnail-container">
+                            <img src="https://img.youtube.com/vi/mtvKyci6L0w/sddefault.jpg" alt="Introducing W.I.S.E.">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Introducing W.I.S.E.</h3>
+                            <p>An introduction to WISE Columbia — our mission, vision, and the community we serve.</p>
+                        </div>
+                    </div>
+                    <!-- Video Card 7 -->
+                    <div class="video-card" data-video-id="UtBPDvrSar8">
+                        <div class="video-thumbnail-container">
+                            <img src="https://img.youtube.com/vi/UtBPDvrSar8/sddefault.jpg" alt="Columbia Chariot Festival of Joy 2026">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Columbia Chariot Festival of Joy 2026</h3>
+                            <p>Promotional video for the Columbia Chariot Festival of Joy (Rathayatra) 2026 — a vibrant public celebration of spirituality and community.</p>
+                        </div>
+                    </div>
                 </div>
         </div>
     </section>
@@ -318,9 +345,14 @@
                     if (thumb.querySelector('iframe')) return;
                     stopAllVideos();
                     const iframe = document.createElement('iframe');
-                    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`);
+                    let src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+                    if (window.location.protocol.startsWith('http')) {
+                        src += `&origin=${encodeURIComponent(window.location.origin)}`;
+                    }
+                    iframe.setAttribute('src', src);
                     iframe.setAttribute('title', 'YouTube video player');
                     iframe.setAttribute('frameborder', '0');
+                    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
                     iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
                     iframe.setAttribute('allowfullscreen', 'true');
                     thumb.classList.add('playing');
