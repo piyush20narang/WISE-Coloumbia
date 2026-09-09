@@ -1,6 +1,5 @@
 .vercel
 .DS_Store
-*.pdf
 *.docx
 *.py
 scratch/
