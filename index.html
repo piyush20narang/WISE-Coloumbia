@@ -68,227 +68,95 @@
         </div>
     </section>
 
-    <!-- ===== CHARIOT FESTIVAL OF JOY — EVENT SPOTLIGHT ===== -->
-    <section id="cfoj-spotlight" style="
-        background: linear-gradient(135deg, #0F172A 0%, #1A365D 50%, #0F172A 100%);
-        padding: 70px 5%;
-        position: relative;
-        overflow: hidden;
-    ">
-        <!-- Decorative background orbs -->
-        <div style="position:absolute;top:-80px;right:-80px;width:350px;height:350px;background:radial-gradient(circle,rgba(212,175,55,0.15) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
-        <div style="position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(212,175,55,0.1) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
-
-        <div class="container" style="position:relative;z-index:1;">
-
-            <!-- Top badge -->
-            <div style="text-align:center;margin-bottom:30px;">
-                <span id="cfoj-badge" style="
-                    display:inline-flex;align-items:center;gap:8px;
-                    background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);
-                    color:#D4AF37;padding:8px 22px;border-radius:50px;
-                    font-size:0.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-                ">
-                    <span style="width:8px;height:8px;background:#D4AF37;border-radius:50%;animation:cfoj-pulse 1.5s infinite;"></span>
-                    Upcoming Event
-                </span>
+    <!-- ===== CHARIOT FESTIVAL OF JOY — EVENT SECTION ===== -->
+    <section id="cfoj-spotlight" style="background:linear-gradient(135deg,#0F172A 0%,#1A365D 60%,#0F172A 100%);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+        <div style="position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(212,175,55,0.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+        <div style="display:flex;flex-wrap:wrap;position:relative;z-index:1;">
+            <!-- LEFT: Festival Photo -->
+            <div style="flex:1;min-width:300px;min-height:520px;position:relative;overflow:hidden;">
+                <img src="assets/images/chariot_festival_of_joy.jpeg" alt="Chariot Festival of Joy 2026" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
+                <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(15,23,42,0.1) 0%,rgba(15,23,42,0.45) 100%);"></div>
+                <div style="position:absolute;top:28px;left:28px;background:var(--secondary);color:white;border-radius:16px;padding:14px 18px;text-align:center;box-shadow:0 8px 24px rgba(26,54,93,0.5);line-height:1;">
+                    <div style="font-size:2.4rem;font-weight:900;">12</div>
+                    <div style="font-size:0.9rem;font-weight:700;letter-spacing:1px;margin-top:4px;">SEPT</div>
+                    <div style="font-size:0.75rem;opacity:0.8;margin-top:2px;">2026</div>
+                </div>
+                <div style="position:absolute;bottom:92px;left:28px;background:linear-gradient(135deg,#D4AF37,#B8962E);color:#0F172A;border-radius:50px;padding:8px 18px;font-size:0.8rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;box-shadow:0 4px 16px rgba(212,175,55,0.5);">
+                    <i class="fas fa-ticket-alt" style="margin-right:5px;"></i>Free Entry
+                </div>
+                <div style="position:absolute;bottom:28px;left:28px;display:flex;gap:8px;">
+                    <img src="assets/images/chariot_festival.jpeg" alt="Chariot Festival" style="width:72px;height:56px;object-fit:cover;border-radius:8px;border:2px solid rgba(255,255,255,0.3);">
+                    <img src="assets/images/kids_chariot_festival.jpeg" alt="Kids" style="width:72px;height:56px;object-fit:cover;border-radius:8px;border:2px solid rgba(255,255,255,0.3);">
+                    <img src="assets/images/chariot_sponsorship.jpeg" alt="Sponsorship" style="width:72px;height:56px;object-fit:cover;border-radius:8px;border:2px solid rgba(255,255,255,0.3);">
+                </div>
             </div>
-
-            <!-- Title -->
-            <div style="text-align:center;margin-bottom:40px;">
-                <h2 class="font-heading" style="color:#fff;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px;line-height:1.2;">
-                    Columbia Chariot Festival of Joy
-                </h2>
-                <p style="color:rgba(255,255,255,0.7);font-size:1.15rem;max-width:600px;margin:0 auto;">
-                    Join us for a joyful celebration of devotion, culture & community on the streets of Columbia!
+            <!-- RIGHT: All Details -->
+            <div style="flex:1.2;min-width:300px;padding:48px 44px;display:flex;flex-direction:column;justify-content:center;">
+                <div style="margin-bottom:20px;">
+                    <span id="cfoj-badge" style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);color:#D4AF37;padding:7px 20px;border-radius:50px;font-size:0.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
+                        <span style="width:8px;height:8px;background:#D4AF37;border-radius:50%;animation:cfoj-pulse 1.5s infinite;"></span>
+                        Upcoming Event
+                    </span>
+                </div>
+                <h2 class="font-heading" style="color:#fff;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:8px;line-height:1.2;">Chariot Festival of Joy</h2>
+                <p style="color:#D4AF37;font-weight:700;font-size:0.82rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">Columbia's Biggest Community Celebration</p>
+                <p style="color:rgba(255,255,255,0.8);font-size:1rem;line-height:1.8;margin-bottom:22px;">
+                    Our <strong style="color:#fff;">FIRST and BIGGEST</strong> festival of the year! World famous Lord Jagannatha will be having a welcome party &#8212; coming out to see friends and devotees as well as those passing by. This is a public community event hosted by WISE Columbia, starting with a grand parade at Stephens Lake Park.
                 </p>
-            </div>
-
-            <!-- Countdown Timer -->
-            <div id="cfoj-countdown" style="display:flex;justify-content:center;gap:16px;margin-bottom:50px;flex-wrap:wrap;">
-                <div class="cfoj-unit" id="cfoj-days">
-                    <span class="cfoj-num">--</span>
-                    <span class="cfoj-label">Days</span>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+                    <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.92rem;"><i class="fas fa-map-marker-alt" style="color:#D4AF37;width:18px;text-align:center;"></i><span>Stephens Lake Park, Columbia MO</span></div>
+                    <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.92rem;"><i class="fas fa-users" style="color:#D4AF37;width:18px;text-align:center;"></i><span>Community Hosting: WISE</span></div>
+                    <div style="display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:0.92rem;"><i class="fas fa-utensils" style="color:#D4AF37;width:18px;text-align:center;"></i><span>Free Vegetarian Feast &amp; Cultural Programs</span></div>
                 </div>
-                <div class="cfoj-sep">:</div>
-                <div class="cfoj-unit" id="cfoj-hours">
-                    <span class="cfoj-num">--</span>
-                    <span class="cfoj-label">Hours</span>
-                </div>
-                <div class="cfoj-sep">:</div>
-                <div class="cfoj-unit" id="cfoj-minutes">
-                    <span class="cfoj-num">--</span>
-                    <span class="cfoj-label">Minutes</span>
-                </div>
-                <div class="cfoj-sep">:</div>
-                <div class="cfoj-unit" id="cfoj-seconds">
-                    <span class="cfoj-num">--</span>
-                    <span class="cfoj-label">Seconds</span>
-                </div>
-            </div>
-
-            <!-- Event details + PDF downloads -->
-            <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;align-items:stretch;max-width:960px;margin:0 auto;">
-
-                <!-- Event Info Card -->
-                <div style="
-                    background:rgba(255,255,255,0.07);backdrop-filter:blur(10px);
-                    border:1px solid rgba(212,175,55,0.25);border-radius:20px;
-                    padding:36px;flex:1;min-width:260px;
-                ">
-                    <h4 style="color:#D4AF37;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Event Details</h4>
-                    <div style="display:flex;flex-direction:column;gap:14px;">
-                        <div style="display:flex;align-items:center;gap:14px;color:#fff;">
-                            <i class="fas fa-calendar-day" style="color:#D4AF37;font-size:1.1rem;width:20px;text-align:center;"></i>
-                            <span>Friday, September 12, 2026</span>
-                        </div>
-                        <div style="display:flex;align-items:center;gap:14px;color:#fff;">
-                            <i class="fas fa-clock" style="color:#D4AF37;font-size:1.1rem;width:20px;text-align:center;"></i>
-                            <span>Open to the Public — All Are Welcome!</span>
-                        </div>
-                        <div style="display:flex;align-items:center;gap:14px;color:#fff;">
-                            <i class="fas fa-map-marker-alt" style="color:#D4AF37;font-size:1.1rem;width:20px;text-align:center;"></i>
-                            <span>Columbia, Missouri</span>
-                        </div>
-                        <div style="display:flex;align-items:center;gap:14px;color:#fff;">
-                            <i class="fas fa-ticket-alt" style="color:#D4AF37;font-size:1.1rem;width:20px;text-align:center;"></i>
-                            <span>Free Entry &amp; Vegetarian Feast</span>
-                        </div>
+                <div style="margin-bottom:28px;">
+                    <p style="color:rgba(255,255,255,0.5);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Starts In</p>
+                    <div id="cfoj-countdown" style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="cfoj-unit" id="cfoj-days"><span class="cfoj-num">--</span><span class="cfoj-label">Days</span></div>
+                        <div class="cfoj-sep">:</div>
+                        <div class="cfoj-unit" id="cfoj-hours"><span class="cfoj-num">--</span><span class="cfoj-label">Hours</span></div>
+                        <div class="cfoj-sep">:</div>
+                        <div class="cfoj-unit" id="cfoj-minutes"><span class="cfoj-num">--</span><span class="cfoj-label">Min</span></div>
+                        <div class="cfoj-sep">:</div>
+                        <div class="cfoj-unit" id="cfoj-seconds"><span class="cfoj-num">--</span><span class="cfoj-label">Sec</span></div>
                     </div>
                 </div>
-
-                <!-- PDF Downloads Card -->
-                <div style="
-                    background:rgba(255,255,255,0.07);backdrop-filter:blur(10px);
-                    border:1px solid rgba(212,175,55,0.25);border-radius:20px;
-                    padding:36px;flex:1;min-width:260px;display:flex;flex-direction:column;justify-content:space-between;
-                ">
-                    <h4 style="color:#D4AF37;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Event Resources</h4>
-                    <div style="display:flex;flex-direction:column;gap:14px;flex:1;justify-content:center;">
-                        <a href="assets/docs/CFOJ2026-Program-Schedule.pdf" download
-                           style="
-                               display:flex;align-items:center;gap:14px;
-                               background:linear-gradient(135deg,#D4AF37,#B8962E);
-                               color:#0F172A;padding:14px 20px;border-radius:12px;
-                               font-weight:700;text-decoration:none;font-size:0.95rem;
-                               transition:transform 0.2s,box-shadow 0.2s;
-                           "
-                           onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(212,175,55,0.4)'"
-                           onmouseout="this.style.transform='';this.style.boxShadow=''">
-                            <i class="fas fa-file-alt" style="font-size:1.3rem;flex-shrink:0;"></i>
-                            <div>
-                                <div>Program Schedule</div>
-                                <div style="font-size:0.75rem;font-weight:400;opacity:0.75;">Download PDF</div>
-                            </div>
-                            <i class="fas fa-download" style="margin-left:auto;"></i>
-                        </a>
-                        <a href="assets/docs/CFOJ2026-Event-Map.pdf" download
-                           style="
-                               display:flex;align-items:center;gap:14px;
-                               background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
-                               color:#fff;padding:14px 20px;border-radius:12px;
-                               font-weight:600;text-decoration:none;font-size:0.95rem;
-                               transition:transform 0.2s,box-shadow 0.2s,background 0.2s;
-                           "
-                           onmouseover="this.style.transform='translateY(-2px)';this.style.background='rgba(255,255,255,0.18)'"
-                           onmouseout="this.style.transform='';this.style.background='rgba(255,255,255,0.1)'">
-                            <i class="fas fa-map" style="font-size:1.3rem;color:#D4AF37;flex-shrink:0;"></i>
-                            <div>
-                                <div>Event Map</div>
-                                <div style="font-size:0.75rem;font-weight:400;opacity:0.6;">Download PDF</div>
-                            </div>
-                            <i class="fas fa-download" style="margin-left:auto;opacity:0.7;"></i>
-                        </a>
-                    </div>
+                <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+                    <a href="donate.html#chariot-sponsorship" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#D97706,#F59E0B);color:white;padding:12px 22px;border-radius:50px;font-weight:700;font-size:0.9rem;text-decoration:none;box-shadow:0 6px 20px rgba(217,119,6,0.35);"><i class="fas fa-hand-holding-heart"></i> Sponsor This Event</a>
+                    <a href="assets/docs/CFOJ2026-Program-Schedule.pdf" download style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.5);color:#D4AF37;padding:11px 18px;border-radius:50px;font-weight:600;font-size:0.88rem;text-decoration:none;"><i class="fas fa-file-alt"></i> Program Schedule</a>
+                    <a href="assets/docs/CFOJ2026-Event-Map.pdf" download style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:11px 18px;border-radius:50px;font-weight:600;font-size:0.88rem;text-decoration:none;"><i class="fas fa-map"></i> Event Map</a>
                 </div>
+                <a href="programs.html#upcoming-events" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;color:rgba(212,175,55,0.8);font-weight:600;font-size:0.85rem;text-decoration:none;">View all upcoming events <i class="fas fa-arrow-right"></i></a>
             </div>
-
         </div>
     </section>
 
     <style>
-        .cfoj-unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(212,175,55,0.3);
-            border-radius: 16px;
-            padding: 18px 24px;
-            min-width: 88px;
-        }
-        .cfoj-num {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            color: #D4AF37;
-            line-height: 1;
-            font-variant-numeric: tabular-nums;
-        }
-        .cfoj-label {
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            margin-top: 6px;
-        }
-        .cfoj-sep {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: rgba(212,175,55,0.5);
-            align-self: center;
-            margin-top: -14px;
-        }
-        @keyframes cfoj-pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50%       { opacity: 0.4; transform: scale(0.7); }
-        }
-        @media (max-width: 480px) {
-            .cfoj-sep { display: none; }
-        }
+        .cfoj-unit{display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,0.08);border:1px solid rgba(212,175,55,0.3);border-radius:12px;padding:14px 18px;min-width:72px;}
+        .cfoj-num{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#D4AF37;line-height:1;font-variant-numeric:tabular-nums;}
+        .cfoj-label{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:5px;}
+        .cfoj-sep{font-size:2rem;font-weight:800;color:rgba(212,175,55,0.45);align-self:center;margin-top:-10px;}
+        @keyframes cfoj-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+        @media(max-width:480px){.cfoj-sep{display:none}}
     </style>
-
     <script>
-        (function() {
-            // Target: Sep 12 2026 00:00:00 local time
-            var target = new Date('2026-09-12T00:00:00');
-            var badge  = document.getElementById('cfoj-badge');
-            var section = document.getElementById('cfoj-spotlight');
-
-            function pad(n) { return String(n).padStart(2, '0'); }
-
-            function tick() {
-                var now  = new Date();
-                var diff = target - now;
-
-                // Event is past — hide the spotlight section
-                if (diff <= -86400000) {
-                    if (section) section.remove();
+        (function(){
+            var target=new Date("2026-09-12T00:00:00"),badge=document.getElementById("cfoj-badge"),section=document.getElementById("cfoj-spotlight");
+            function pad(n){return String(n).padStart(2,"0");}
+            function tick(){
+                var now=new Date(),diff=target-now;
+                if(diff<=-86400000){if(section)section.remove();return;}
+                if(diff<=0){
+                    if(badge)badge.innerHTML='<span style="width:8px;height:8px;background:#22c55e;border-radius:50%;animation:cfoj-pulse 1s infinite;"></span> Happening Today!';
+                    ["cfoj-days","cfoj-hours","cfoj-minutes","cfoj-seconds"].forEach(function(id){document.getElementById(id).querySelector(".cfoj-num").textContent="00";});
                     return;
                 }
-
-                // Today is the event day
-                if (diff <= 0) {
-                    if (badge) badge.innerHTML = '<span style="width:8px;height:8px;background:#22c55e;border-radius:50%;animation:cfoj-pulse 1s infinite;"></span> Happening Today!';
-                    document.getElementById('cfoj-days').querySelector('.cfoj-num').textContent    = '00';
-                    document.getElementById('cfoj-hours').querySelector('.cfoj-num').textContent   = '00';
-                    document.getElementById('cfoj-minutes').querySelector('.cfoj-num').textContent = '00';
-                    document.getElementById('cfoj-seconds').querySelector('.cfoj-num').textContent = '00';
-                    return;
-                }
-
-                var days    = Math.floor(diff / 86400000);
-                var hours   = Math.floor((diff % 86400000) / 3600000);
-                var minutes = Math.floor((diff % 3600000) / 60000);
-                var seconds = Math.floor((diff % 60000) / 1000);
-
-                document.getElementById('cfoj-days').querySelector('.cfoj-num').textContent    = pad(days);
-                document.getElementById('cfoj-hours').querySelector('.cfoj-num').textContent   = pad(hours);
-                document.getElementById('cfoj-minutes').querySelector('.cfoj-num').textContent = pad(minutes);
-                document.getElementById('cfoj-seconds').querySelector('.cfoj-num').textContent = pad(seconds);
+                document.getElementById("cfoj-days").querySelector(".cfoj-num").textContent=pad(Math.floor(diff/86400000));
+                document.getElementById("cfoj-hours").querySelector(".cfoj-num").textContent=pad(Math.floor(diff%86400000/3600000));
+                document.getElementById("cfoj-minutes").querySelector(".cfoj-num").textContent=pad(Math.floor(diff%3600000/60000));
+                document.getElementById("cfoj-seconds").querySelector(".cfoj-num").textContent=pad(Math.floor(diff%60000/1000));
             }
-
-            tick();
-            setInterval(tick, 1000);
+            tick();setInterval(tick,1000);
         })();
     </script>
 
@@ -414,126 +282,6 @@
         </div>
     </section>
 
-    <!-- ===== UPCOMING EVENTS ===== -->
-    <section id="upcoming-events" style="padding: 80px 5%; background: #f8fafc;">
-        <div class="container">
-
-            <!-- Section Header -->
-            <div class="section-title" style="margin-bottom: 60px;">
-                <span style="display:inline-block;background:rgba(212,175,55,0.12);color:#B8962E;font-size:0.78rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:16px;border:1px solid rgba(212,175,55,0.3);">
-                    <i class="fas fa-star" style="margin-right:6px;"></i>Upcoming Events
-                </span>
-                <h2 class="font-heading">Don't Miss Out</h2>
-                <p>Mark your calendars — our biggest celebration of the year is almost here.</p>
-            </div>
-
-            <!-- Event Card -->
-            <div style="
-                background: white;
-                border-radius: 24px;
-                box-shadow: 0 20px 60px rgba(0,0,0,0.10);
-                overflow: hidden;
-                display: flex;
-                flex-wrap: wrap;
-                border-left: 8px solid var(--secondary);
-            ">
-                <!-- LEFT: Photo -->
-                <div style="flex: 1; min-width: 280px; position: relative; min-height: 400px; overflow: hidden;">
-                    <img
-                        src="assets/images/chariot_festival_of_joy.jpeg"
-                        alt="Chariot Festival of Joy 2026"
-                        style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;"
-                    >
-                    <!-- Date badge overlay -->
-                    <div style="
-                        position:absolute; top:20px; left:20px;
-                        background: var(--secondary);
-                        color: white; border-radius: 14px;
-                        padding: 12px 16px; text-align: center;
-                        box-shadow: 0 6px 20px rgba(26,54,93,0.45);
-                        line-height:1;
-                    ">
-                        <div style="font-size:2.2rem;font-weight:900;">12</div>
-                        <div style="font-size:0.9rem;font-weight:700;letter-spacing:1px;margin-top:4px;">SEPT</div>
-                        <div style="font-size:0.75rem;opacity:0.8;margin-top:2px;">2026</div>
-                    </div>
-                    <!-- Free Entry badge -->
-                    <div style="
-                        position:absolute; bottom:20px; left:20px;
-                        background: linear-gradient(135deg,#D4AF37,#B8962E);
-                        color:#0F172A; border-radius:50px;
-                        padding:7px 16px; font-size:0.78rem; font-weight:800;
-                        letter-spacing:1px; text-transform:uppercase;
-                        box-shadow: 0 4px 14px rgba(212,175,55,0.5);
-                    ">
-                        <i class="fas fa-ticket-alt" style="margin-right:5px;"></i>Free Entry
-                    </div>
-                </div>
-
-                <!-- RIGHT: Details -->
-                <div style="flex: 1.3; min-width: 280px; padding: 44px 40px; display:flex; flex-direction:column; justify-content:center;">
-
-                    <h3 class="font-heading" style="font-size:clamp(1.7rem,3vw,2.4rem); color:var(--secondary); margin-bottom:8px; line-height:1.2;">
-                        Chariot Festival of Joy
-                    </h3>
-                    <p style="color:var(--primary); font-weight:700; font-size:0.82rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:18px;">
-                        Columbia's Biggest Community Celebration
-                    </p>
-
-                    <p style="font-size:1.02rem; line-height:1.85; color:#475569; margin-bottom:24px;">
-                        Our <strong>FIRST and BIGGEST</strong> festival of the year! World famous Lord Jagannatha will be having a welcome party — coming out to see friends and devotees as well as those passing by. This is a public community event hosted by WISE Columbia, starting with a grand parade at Stephens Lake Park.
-                    </p>
-
-                    <!-- Location & Host -->
-                    <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:28px;">
-                        <div style="display:flex;align-items:center;gap:10px;font-size:0.92rem;color:#334155;">
-                            <i class="fas fa-map-marker-alt" style="color:var(--secondary);width:18px;text-align:center;"></i>
-                            <span>Stephens Lake Park, Columbia MO</span>
-                        </div>
-                        <div style="display:flex;align-items:center;gap:10px;font-size:0.92rem;color:#334155;">
-                            <i class="fas fa-users" style="color:var(--secondary);width:18px;text-align:center;"></i>
-                            <span>Community Hosting: WISE</span>
-                        </div>
-                        <div style="display:flex;align-items:center;gap:10px;font-size:0.92rem;color:#334155;">
-                            <i class="fas fa-utensils" style="color:var(--secondary);width:18px;text-align:center;"></i>
-                            <span>Free Vegetarian Feast &amp; Cultural Programs</span>
-                        </div>
-                    </div>
-
-                    <!-- Photo strip -->
-                    <div style="display:flex;gap:10px;margin-bottom:28px;">
-                        <img src="assets/images/chariot_festival.jpeg" alt="Chariot Festival"
-                             style="width:85px;height:64px;object-fit:cover;border-radius:10px;border:2px solid #E2E8F0;">
-                        <img src="assets/images/kids_chariot_festival.jpeg" alt="Kids at Chariot Festival"
-                             style="width:85px;height:64px;object-fit:cover;border-radius:10px;border:2px solid #E2E8F0;">
-                        <img src="assets/images/chariot_sponsorship.jpeg" alt="Chariot Sponsorship"
-                             style="width:85px;height:64px;object-fit:cover;border-radius:10px;border:2px solid #E2E8F0;">
-                    </div>
-
-                    <!-- Buttons -->
-                    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
-                        <a href="donate.html#chariot-sponsorship"
-                           style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#D97706,#F59E0B);color:white;padding:12px 24px;border-radius:50px;font-weight:700;font-size:0.9rem;text-decoration:none;box-shadow:0 6px 20px rgba(217,119,6,0.3);">
-                            <i class="fas fa-hand-holding-heart"></i> Sponsor This Event
-                        </a>
-                        <a href="assets/docs/CFOJ2026-Program-Schedule.pdf" download
-                           style="display:inline-flex;align-items:center;gap:8px;background:var(--secondary);color:white;padding:12px 20px;border-radius:50px;font-weight:600;font-size:0.88rem;text-decoration:none;">
-                            <i class="fas fa-file-alt"></i> Program Schedule
-                        </a>
-                        <a href="assets/docs/CFOJ2026-Event-Map.pdf" download
-                           style="display:inline-flex;align-items:center;gap:8px;border:2px solid var(--secondary);color:var(--secondary);padding:10px 18px;border-radius:50px;font-weight:600;font-size:0.88rem;text-decoration:none;">
-                            <i class="fas fa-map"></i> Event Map
-                        </a>
-                    </div>
-
-                    <a href="programs.html#upcoming-events" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;color:var(--primary);font-weight:700;font-size:0.88rem;text-decoration:none;">
-                        View all upcoming events <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer>
