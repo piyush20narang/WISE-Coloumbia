@@ -118,7 +118,7 @@
                         <div class="cfoj-details-list">
                             <div class="cfoj-detail-item">
                                 <i class="fas fa-calendar-alt cfoj-detail-icon"></i>
-                                <span>Friday, September 12, 2026</span>
+                                <span>Friday, September 12, 2026 &bull; 11:00 AM &#8211; 6:00 PM</span>
                             </div>
                             <div class="cfoj-detail-item">
                                 <i class="fas fa-clock cfoj-detail-icon"></i>
@@ -126,7 +126,10 @@
                             </div>
                             <div class="cfoj-detail-item">
                                 <i class="fas fa-map-marker-alt cfoj-detail-icon"></i>
-                                <span>Columbia, Missouri</span>
+                                <a href="https://maps.google.com/?q=Stephens+Lake+Park,+2001+E+Broadway,+Columbia,+MO+65201" target="_blank" rel="noopener noreferrer" class="cfoj-map-link">
+                                    <span>Stephens Lake Park, 2001 E Broadway, Columbia, MO, 65201</span>
+                                    <i class="fas fa-external-link-alt" style="font-size:0.75rem;margin-left:4px;opacity:0.8;"></i>
+                                </a>
                             </div>
                             <div class="cfoj-detail-item">
                                 <i class="fas fa-ticket-alt cfoj-detail-icon"></i>
@@ -257,6 +260,19 @@
             text-align: center;
             flex-shrink: 0;
         }
+        .cfoj-map-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            transition: color 0.2s ease;
+        }
+        .cfoj-map-link:hover {
+            color: #E5A93C;
+            text-decoration: underline;
+        }
 
         /* Resources List */
         .cfoj-resources-list {
@@ -348,7 +364,7 @@
     </style>
     <script>
         (function(){
-            var target = new Date("2026-09-12T00:00:00");
+            var target = new Date("2026-09-12T11:00:00");
             var badge = document.getElementById("cfoj-badge");
             var section = document.getElementById("cfoj-spotlight");
 
