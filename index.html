@@ -69,7 +69,7 @@
     </section>
 
     <!-- ===== CHARIOT FESTIVAL OF JOY — EVENT SECTION ===== -->
-    <section id="cfoj-spotlight" style="background:linear-gradient(135deg,#0F172A 0%,#1A365D 60%,#0F172A 100%);position:relative;overflow:hidden;">
+    <section id="cfoj-spotlight" style="background:linear-gradient(135deg,#0F172A 0%,#1A365D 60%,#0F172A 100%);position:relative;overflow:hidden;padding:50px 4% 60px 4%;">
         <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
         <div style="position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(212,175,55,0.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
         <div class="cfoj-main-grid" style="position:relative;z-index:1;">
@@ -353,7 +353,10 @@
         .cfoj-dl-icon { font-size: 1.15rem; }
         .cfoj-map-dl { color: rgba(255, 255, 255, 0.7); }
 
-        /* Layout Grid */
+        /* Layout Grid & Spacing */
+        #cfoj-spotlight {
+            padding: 50px 4% 60px 4% !important;
+        }
         .cfoj-main-grid {
             display: grid;
             grid-template-columns: 1fr 1.25fr;
@@ -362,16 +365,17 @@
                 "photo header"
                 "photo body";
             align-items: start;
-            max-width: 1400px;
+            max-width: 1320px;
             margin: 0 auto;
+            gap: 0 24px;
         }
         .cfoj-header-block {
             grid-area: header;
-            padding: 48px 44px 0 44px;
+            padding: 10px 24px 0 24px;
         }
         .cfoj-photo-col {
             grid-area: photo;
-            padding: 40px;
+            padding: 10px 16px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -380,7 +384,7 @@
         .cfoj-photo-card {
             position: relative;
             width: 100%;
-            max-width: 480px;
+            max-width: 460px;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
@@ -410,34 +414,38 @@
         }
         .cfoj-body-col {
             grid-area: body;
-            padding: 20px 44px 48px 44px;
+            padding: 16px 24px 10px 24px;
         }
 
         /* Mobile Layout: Header -> Photo -> Details */
         @media (max-width: 900px) {
+            #cfoj-spotlight {
+                padding: 36px 4% 40px 4% !important;
+            }
             .cfoj-main-grid {
                 display: flex;
                 flex-direction: column;
+                gap: 0;
             }
             .cfoj-header-block {
                 order: 1;
-                padding: 36px 20px 14px 20px;
+                padding: 0 8px 16px 8px;
                 text-align: center;
             }
             .cfoj-photo-col {
                 order: 2;
-                padding: 8px 18px 22px 18px;
+                padding: 0 8px 20px 8px;
             }
             .cfoj-photo-card {
-                max-width: 420px;
+                max-width: 400px;
                 margin: 0 auto;
             }
             .cfoj-main-img {
-                max-height: 75vh;
+                max-height: 70vh;
             }
             .cfoj-body-col {
                 order: 3;
-                padding: 0 18px 36px 18px;
+                padding: 0 8px 10px 8px;
             }
             #cfoj-countdown {
                 gap: 6px;
@@ -501,7 +509,7 @@
     </script>
 
     <!-- Introduction Section -->
-    <section id="introduction" style="padding-bottom: 0;">
+    <section id="introduction" style="padding-top: 60px; padding-bottom: 0;">
         <div class="container">
             <div class="section-title reveal">
                 <h2 class="font-heading">Spreading the Light of Spiritual Wisdom</h2>
