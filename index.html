@@ -84,7 +84,7 @@
                 </div>
             </div>
             <!-- RIGHT: All Details -->
-            <div style="flex:1.2;min-width:300px;padding:48px 44px;display:flex;flex-direction:column;justify-content:center;">
+            <div class="cfoj-content-col" style="flex:1.2;min-width:300px;padding:48px 44px;display:flex;flex-direction:column;justify-content:center;">
                 <div style="margin-bottom:20px;">
                     <span id="cfoj-badge" style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);color:#D4AF37;padding:7px 20px;border-radius:50px;font-size:0.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
                         <span style="width:8px;height:8px;background:#D4AF37;border-radius:50%;animation:cfoj-pulse 1.5s infinite;"></span>
@@ -96,10 +96,10 @@
                 <p style="color:rgba(255,255,255,0.8);font-size:1rem;line-height:1.8;margin-bottom:22px;">
                     Our <strong style="color:#fff;">FIRST and BIGGEST</strong> festival of the year! World famous Lord Jagannatha will be having a welcome party &#8212; coming out to see friends and devotees as well as those passing by. This is a public community event hosted by WISE Columbia, starting with a grand parade at Stephens Lake Park.
                 </p>
-                <!-- Live Countdown Timer (auto-removes when reaching 0) -->
+                <!-- Live Countdown Timer (auto-removes when reaching 0, single line on mobile) -->
                 <div id="cfoj-countdown-wrap" style="margin-bottom:26px;">
                     <p style="color:rgba(255,255,255,0.5);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;font-weight:700;">Starts In</p>
-                    <div id="cfoj-countdown" style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div id="cfoj-countdown">
                         <div class="cfoj-unit" id="cfoj-days"><span class="cfoj-num">--</span><span class="cfoj-label">Days</span></div>
                         <div class="cfoj-sep">:</div>
                         <div class="cfoj-unit" id="cfoj-hours"><span class="cfoj-num">--</span><span class="cfoj-label">Hours</span></div>
@@ -166,9 +166,9 @@
                     </div>
                 </div>
 
-                <!-- Sponsor Action Button -->
-                <div>
-                    <a href="donate.html#chariot-sponsorship" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#D97706,#F59E0B);color:white;padding:13px 28px;border-radius:50px;font-weight:700;font-size:0.92rem;text-decoration:none;box-shadow:0 6px 20px rgba(217,119,6,0.35);transition:transform 0.2s ease,box-shadow 0.2s ease;">
+                <!-- Sponsor Action Button (Centered) -->
+                <div style="display:flex;justify-content:center;margin-top:10px;">
+                    <a href="donate.html#chariot-sponsorship" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#D97706,#F59E0B);color:white;padding:14px 34px;border-radius:50px;font-weight:700;font-size:0.95rem;text-decoration:none;box-shadow:0 6px 20px rgba(217,119,6,0.35);transition:transform 0.2s ease,box-shadow 0.2s ease;text-align:center;">
                         <i class="fas fa-hand-holding-heart"></i> Sponsor This Event
                     </a>
                 </div>
@@ -177,10 +177,48 @@
     </section>
 
     <style>
-        .cfoj-unit{display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,0.08);border:1px solid rgba(212,175,55,0.3);border-radius:12px;padding:14px 18px;min-width:72px;}
-        .cfoj-num{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#D4AF37;line-height:1;font-variant-numeric:tabular-nums;}
-        .cfoj-label{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:5px;}
-        .cfoj-sep{font-size:2rem;font-weight:800;color:rgba(212,175,55,0.45);align-self:center;margin-top:-10px;}
+        #cfoj-countdown {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            gap: 10px;
+            max-width: 420px;
+            width: 100%;
+        }
+        .cfoj-unit {
+            flex: 1 1 0;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 12px 6px;
+            box-sizing: border-box;
+        }
+        .cfoj-num {
+            font-size: clamp(1.2rem, 4.5vw, 2.2rem);
+            font-weight: 800;
+            color: #D4AF37;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+        }
+        .cfoj-label {
+            font-size: clamp(0.55rem, 1.8vw, 0.65rem);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 5px;
+        }
+        .cfoj-sep {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: rgba(212, 175, 55, 0.45);
+            align-self: center;
+            margin-top: -6px;
+            flex-shrink: 0;
+        }
 
         /* Styled Cards matching user reference */
         .cfoj-info-card {
@@ -292,7 +330,21 @@
         .cfoj-map-dl { color: rgba(255, 255, 255, 0.7); }
 
         @keyframes cfoj-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
-        @media(max-width:480px){.cfoj-sep{display:none}}
+        @media (max-width: 600px) {
+            .cfoj-content-col {
+                padding: 32px 18px !important;
+            }
+            #cfoj-countdown {
+                gap: 6px;
+            }
+            .cfoj-unit {
+                padding: 10px 4px;
+                border-radius: 10px;
+            }
+            .cfoj-sep {
+                display: none;
+            }
+        }
     </style>
     <script>
         (function(){
