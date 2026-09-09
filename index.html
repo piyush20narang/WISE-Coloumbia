@@ -68,6 +68,230 @@
         </div>
     </section>
 
+    <!-- ===== CHARIOT FESTIVAL OF JOY — EVENT SPOTLIGHT ===== -->
+    <section id="cfoj-spotlight" style="
+        background: linear-gradient(135deg, #0F172A 0%, #1A365D 50%, #0F172A 100%);
+        padding: 70px 5%;
+        position: relative;
+        overflow: hidden;
+    ">
+        <!-- Decorative background orbs -->
+        <div style="position:absolute;top:-80px;right:-80px;width:350px;height:350px;background:radial-gradient(circle,rgba(212,175,55,0.15) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+        <div style="position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(212,175,55,0.1) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+
+        <div class="container" style="position:relative;z-index:1;">
+
+            <!-- Top badge -->
+            <div style="text-align:center;margin-bottom:30px;">
+                <span id="cfoj-badge" style="
+                    display:inline-flex;align-items:center;gap:8px;
+                    background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);
+                    color:#D4AF37;padding:8px 22px;border-radius:50px;
+                    font-size:0.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+                ">
+                    <span style="width:8px;height:8px;background:#D4AF37;border-radius:50%;animation:cfoj-pulse 1.5s infinite;"></span>
+                    Upcoming Event
+                </span>
+            </div>
+
+            <!-- Title -->
+            <div style="text-align:center;margin-bottom:40px;">
+                <h2 class="font-heading" style="color:#fff;font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px;line-height:1.2;">
+                    Columbia Chariot Festival of Joy
+                </h2>
+                <p style="color:rgba(255,255,255,0.7);font-size:1.15rem;max-width:600px;margin:0 auto;">
+                    Join us for a joyful celebration of devotion, culture & community on the streets of Columbia!
+                </p>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div id="cfoj-countdown" style="display:flex;justify-content:center;gap:16px;margin-bottom:50px;flex-wrap:wrap;">
+                <div class="cfoj-unit" id="cfoj-days">
+                    <span class="cfoj-num">--</span>
+                    <span class="cfoj-label">Days</span>
+                </div>
+                <div class="cfoj-sep">:</div>
+                <div class="cfoj-unit" id="cfoj-hours">
+                    <span class="cfoj-num">--</span>
+                    <span class="cfoj-label">Hours</span>
+                </div>
+                <div class="cfoj-sep">:</div>
+                <div class="cfoj-unit" id="cfoj-minutes">
+                    <span class="cfoj-num">--</span>
+                    <span class="cfoj-label">Minutes</span>
+                </div>
+                <div class="cfoj-sep">:</div>
+                <div class="cfoj-unit" id="cfoj-seconds">
+                    <span class="cfoj-num">--</span>
+                    <span class="cfoj-label">Seconds</span>
+                </div>
+            </div>
+
+            <!-- Event details + PDF downloads -->
+            <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;align-items:stretch;max-width:960px;margin:0 auto;">
+
+                <!-- Event Info Card -->
+                <div style="
+                    background:rgba(255,255,255,0.07);backdrop-filter:blur(10px);
+                    border:1px solid rgba(212,175,55,0.25);border-radius:20px;
+                    padding:36px;flex:1;min-width:260px;
+                ">
+                    <h4 style="color:#D4AF37;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Event Details</h4>
+                    <div style="display:flex;flex-direction:column;gap:14px;">
+                        <div style="display:flex;align-items:center;gap:14px;color:#fff;">
+                            <i class="fas fa-calendar-day" style="color:#D4AF37;font-size:1.1rem;width:20px;text-align:center;"></i>
+                            <span>Friday, September 12, 2026</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:14px;color:#fff;">
+                            <i class="fas fa-clock" style="color:#D4AF37;font-size:1.1rem;width:20px;text-align:center;"></i>
+                            <span>Open to the Public — All Are Welcome!</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:14px;color:#fff;">
+                            <i class="fas fa-map-marker-alt" style="color:#D4AF37;font-size:1.1rem;width:20px;text-align:center;"></i>
+                            <span>Columbia, Missouri</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:14px;color:#fff;">
+                            <i class="fas fa-ticket-alt" style="color:#D4AF37;font-size:1.1rem;width:20px;text-align:center;"></i>
+                            <span>Free Entry &amp; Vegetarian Feast</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF Downloads Card -->
+                <div style="
+                    background:rgba(255,255,255,0.07);backdrop-filter:blur(10px);
+                    border:1px solid rgba(212,175,55,0.25);border-radius:20px;
+                    padding:36px;flex:1;min-width:260px;display:flex;flex-direction:column;justify-content:space-between;
+                ">
+                    <h4 style="color:#D4AF37;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Event Resources</h4>
+                    <div style="display:flex;flex-direction:column;gap:14px;flex:1;justify-content:center;">
+                        <a href="assets/docs/CFOJ2026-Program-Schedule.pdf" download
+                           style="
+                               display:flex;align-items:center;gap:14px;
+                               background:linear-gradient(135deg,#D4AF37,#B8962E);
+                               color:#0F172A;padding:14px 20px;border-radius:12px;
+                               font-weight:700;text-decoration:none;font-size:0.95rem;
+                               transition:transform 0.2s,box-shadow 0.2s;
+                           "
+                           onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(212,175,55,0.4)'"
+                           onmouseout="this.style.transform='';this.style.boxShadow=''">
+                            <i class="fas fa-file-alt" style="font-size:1.3rem;flex-shrink:0;"></i>
+                            <div>
+                                <div>Program Schedule</div>
+                                <div style="font-size:0.75rem;font-weight:400;opacity:0.75;">Download PDF</div>
+                            </div>
+                            <i class="fas fa-download" style="margin-left:auto;"></i>
+                        </a>
+                        <a href="assets/docs/CFOJ2026-Event-Map.pdf" download
+                           style="
+                               display:flex;align-items:center;gap:14px;
+                               background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+                               color:#fff;padding:14px 20px;border-radius:12px;
+                               font-weight:600;text-decoration:none;font-size:0.95rem;
+                               transition:transform 0.2s,box-shadow 0.2s,background 0.2s;
+                           "
+                           onmouseover="this.style.transform='translateY(-2px)';this.style.background='rgba(255,255,255,0.18)'"
+                           onmouseout="this.style.transform='';this.style.background='rgba(255,255,255,0.1)'">
+                            <i class="fas fa-map" style="font-size:1.3rem;color:#D4AF37;flex-shrink:0;"></i>
+                            <div>
+                                <div>Event Map</div>
+                                <div style="font-size:0.75rem;font-weight:400;opacity:0.6;">Download PDF</div>
+                            </div>
+                            <i class="fas fa-download" style="margin-left:auto;opacity:0.7;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        .cfoj-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 16px;
+            padding: 18px 24px;
+            min-width: 88px;
+        }
+        .cfoj-num {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: #D4AF37;
+            line-height: 1;
+            font-variant-numeric: tabular-nums;
+        }
+        .cfoj-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-top: 6px;
+        }
+        .cfoj-sep {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: rgba(212,175,55,0.5);
+            align-self: center;
+            margin-top: -14px;
+        }
+        @keyframes cfoj-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.4; transform: scale(0.7); }
+        }
+        @media (max-width: 480px) {
+            .cfoj-sep { display: none; }
+        }
+    </style>
+
+    <script>
+        (function() {
+            // Target: Sep 12 2026 00:00:00 local time
+            var target = new Date('2026-09-12T00:00:00');
+            var badge  = document.getElementById('cfoj-badge');
+            var section = document.getElementById('cfoj-spotlight');
+
+            function pad(n) { return String(n).padStart(2, '0'); }
+
+            function tick() {
+                var now  = new Date();
+                var diff = target - now;
+
+                // Event is past — hide the spotlight section
+                if (diff <= -86400000) {
+                    if (section) section.remove();
+                    return;
+                }
+
+                // Today is the event day
+                if (diff <= 0) {
+                    if (badge) badge.innerHTML = '<span style="width:8px;height:8px;background:#22c55e;border-radius:50%;animation:cfoj-pulse 1s infinite;"></span> Happening Today!';
+                    document.getElementById('cfoj-days').querySelector('.cfoj-num').textContent    = '00';
+                    document.getElementById('cfoj-hours').querySelector('.cfoj-num').textContent   = '00';
+                    document.getElementById('cfoj-minutes').querySelector('.cfoj-num').textContent = '00';
+                    document.getElementById('cfoj-seconds').querySelector('.cfoj-num').textContent = '00';
+                    return;
+                }
+
+                var days    = Math.floor(diff / 86400000);
+                var hours   = Math.floor((diff % 86400000) / 3600000);
+                var minutes = Math.floor((diff % 3600000) / 60000);
+                var seconds = Math.floor((diff % 60000) / 1000);
+
+                document.getElementById('cfoj-days').querySelector('.cfoj-num').textContent    = pad(days);
+                document.getElementById('cfoj-hours').querySelector('.cfoj-num').textContent   = pad(hours);
+                document.getElementById('cfoj-minutes').querySelector('.cfoj-num').textContent = pad(minutes);
+                document.getElementById('cfoj-seconds').querySelector('.cfoj-num').textContent = pad(seconds);
+            }
+
+            tick();
+            setInterval(tick, 1000);
+        })();
+    </script>
+
     <!-- Introduction Section -->
     <section id="introduction" style="padding-bottom: 0;">
         <div class="container">
