@@ -74,19 +74,19 @@
         <div style="position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(212,175,55,0.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
         <div class="cfoj-main-grid" style="position:relative;z-index:1;">
             
-            <!-- 1. HEADER BLOCK (Badge, Title, Subtitle) - comes above image on mobile -->
+            <!-- 1. HEADER BLOCK (Badge, Title, Subtitle) -->
             <div class="cfoj-header-block">
-                <div style="margin-bottom:16px;">
+                <div style="margin-bottom:14px;">
                     <span id="cfoj-badge" style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);color:#D4AF37;padding:7px 20px;border-radius:50px;font-size:0.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">
-                        <span style="width:8px;height:8px;background:#D4AF37;border-radius:50%;animation:cfoj-pulse 1.5s infinite;"></span>
-                        Upcoming Event
+                        <i class="fas fa-newspaper" style="color:#D4AF37;"></i>
+                        WISE in the News
                     </span>
                 </div>
-                <h2 class="font-heading cfoj-title" style="color:#fff;font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:8px;line-height:1.2;">Chariot Festival of Joy</h2>
-                <p class="cfoj-subtitle" style="color:#D4AF37;font-weight:700;font-size:0.82rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0;">Columbia's Biggest Community Celebration</p>
+                <h2 class="font-heading cfoj-title" style="color:#fff;font-size:clamp(1.8rem,3.2vw,2.8rem);margin-bottom:8px;line-height:1.2;">Chariot Festival of Joy in the News</h2>
+                <p class="cfoj-subtitle" style="color:#D4AF37;font-weight:700;font-size:0.82rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0;">Featured by Local Columbia Media &amp; University Publications</p>
             </div>
 
-            <!-- 2. FESTIVAL PHOTO (Full image visible, no cropping) -->
+            <!-- 2. FESTIVAL PHOTO & EVENT RECAP (Left Column) -->
             <div class="cfoj-photo-col">
                 <div class="cfoj-photo-card">
                     <img src="assets/images/chariot_festival_of_joy.jpeg" alt="Chariot Festival of Joy 2026" class="cfoj-main-img">
@@ -96,91 +96,109 @@
                         <div style="font-size:0.75rem;opacity:0.85;margin-top:2px;line-height:1;">2026</div>
                     </div>
                 </div>
+
+                <!-- Event Details Recap Card -->
+                <div class="cfoj-recap-card">
+                    <div style="display:flex;align-items:center;gap:10px;color:#FFFFFF;font-size:0.95rem;font-weight:600;margin-bottom:8px;">
+                        <i class="fas fa-map-marker-alt" style="color:#D4AF37;font-size:1.1rem;width:20px;text-align:center;"></i>
+                        <a href="https://maps.google.com/?q=Stephens+Lake+Park,+2001+E+Broadway,+Columbia,+MO+65201" target="_blank" rel="noopener noreferrer" class="cfoj-map-link">
+                            <span>Stephens Lake Park, Columbia, MO</span>
+                            <i class="fas fa-external-link-alt" style="font-size:0.72rem;margin-left:4px;opacity:0.8;"></i>
+                        </a>
+                    </div>
+                    <p style="color:rgba(255,255,255,0.75);font-size:0.85rem;line-height:1.6;margin-bottom:12px;">
+                        Over 100+ community members gathered at Stephens Lake Park to celebrate with grand chariot pulling, live kirtan music, cultural performances, and a free vegetarian feast.
+                    </p>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                        <a href="assets/docs/CFOJ2026-Program-Schedule.pdf" download="CFOJ2026-Program-Schedule.pdf" class="cfoj-archive-btn">
+                            <i class="fas fa-file-alt"></i> Program Schedule
+                        </a>
+                        <a href="assets/docs/CFOJ2026-Event-Map.pdf" download="CFOJ2026-Event-Map.pdf" class="cfoj-archive-btn">
+                            <i class="fas fa-map"></i> Event Map
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- 3. BODY DETAILS (Description, Countdown, Cards, Sponsor CTA) -->
+            <!-- 3. PRESS ARTICLES & MEDIA COVERAGE (Right Column) -->
             <div class="cfoj-body-col">
-                <p style="color:rgba(255,255,255,0.8);font-size:1rem;line-height:1.8;margin-bottom:22px;">
-                    Our <strong style="color:#fff;">FIRST and BIGGEST</strong> festival of the year! World famous Lord Jagannatha will be having a welcome party &#8212; coming out to see friends and devotees as well as those passing by. This is a public community event hosted by WISE Columbia, starting with a grand parade at Stephens Lake Park.
+                <p style="color:rgba(255,255,255,0.85);font-size:1rem;line-height:1.7;margin-bottom:20px;">
+                    Our FIRST and BIGGEST festival of the year was honored with comprehensive coverage by Columbia's prominent news publications, highlighting our community outreach, Vedic spiritual education, and joyful public celebration:
                 </p>
 
-                <!-- Live Countdown Timer (auto-removes when reaching 0, single line on mobile) -->
-                <div id="cfoj-countdown-wrap" style="margin-bottom:26px;">
-                    <p style="color:rgba(255,255,255,0.5);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;font-weight:700;">Starts In</p>
-                    <div id="cfoj-countdown">
-                        <div class="cfoj-unit" id="cfoj-days"><span class="cfoj-num">--</span><span class="cfoj-label">Days</span></div>
-                        <div class="cfoj-sep">:</div>
-                        <div class="cfoj-unit" id="cfoj-hours"><span class="cfoj-num">--</span><span class="cfoj-label">Hours</span></div>
-                        <div class="cfoj-sep">:</div>
-                        <div class="cfoj-unit" id="cfoj-minutes"><span class="cfoj-num">--</span><span class="cfoj-label">Min</span></div>
-                        <div class="cfoj-sep">:</div>
-                        <div class="cfoj-unit" id="cfoj-seconds"><span class="cfoj-num">--</span><span class="cfoj-label">Sec</span></div>
-                    </div>
+                <!-- 3 Press Cards -->
+                <div class="cfoj-press-grid">
+                    <!-- Article 1: Columbia Missourian -->
+                    <article class="cfoj-article-card">
+                        <div class="cfoj-card-top">
+                            <span class="cfoj-press-tag missourian-tag">
+                                <i class="fas fa-newspaper"></i> Columbia Missourian
+                            </span>
+                            <span class="cfoj-press-date">September 2026</span>
+                        </div>
+                        <h3 class="cfoj-article-title">
+                            <a href="https://www.columbiamissourian.com/news/local/hare-krishna-festival-brings-joy-to-stephens-lake-park/article_e34a7d33-f8fd-4b86-8322-88757ebf60e6.html" target="_blank" rel="noopener noreferrer">
+                                Hare Krishna festival brings joy to Stephens Lake Park
+                            </a>
+                        </h3>
+                        <p class="cfoj-article-quote">
+                            &ldquo;Around 100 people gathered for a celebration with music, mantra chanting and a community feast on Saturday.&rdquo;
+                        </p>
+                        <a href="https://www.columbiamissourian.com/news/local/hare-krishna-festival-brings-joy-to-stephens-lake-park/article_e34a7d33-f8fd-4b86-8322-88757ebf60e6.html" target="_blank" rel="noopener noreferrer" class="cfoj-article-link">
+                            Read on Columbia Missourian <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </article>
+
+                    <!-- Article 2: Columbia Missourian (Feature Story) -->
+                    <article class="cfoj-article-card">
+                        <div class="cfoj-card-top">
+                            <span class="cfoj-press-tag missourian-tag">
+                                <i class="fas fa-newspaper"></i> Columbia Missourian
+                            </span>
+                            <span class="cfoj-press-date">September 2026</span>
+                        </div>
+                        <h3 class="cfoj-article-title">
+                            <a href="https://www.columbiamissourian.com/news/local/spirituality-answered-their-questions-now-theyre-helping-others-find-peace-and-purpose/article_1ec4e363-ea26-4338-bef3-90b598fc51d8.html" target="_blank" rel="noopener noreferrer">
+                                Spirituality answered their questions. Now they're helping others find peace and purpose
+                            </a>
+                        </h3>
+                        <p class="cfoj-article-quote">
+                            &ldquo;Niraj and Rachna Arora have built a community centered around their faith, empowering others through spiritual education and purpose.&rdquo;
+                        </p>
+                        <a href="https://www.columbiamissourian.com/news/local/spirituality-answered-their-questions-now-theyre-helping-others-find-peace-and-purpose/article_1ec4e363-ea26-4338-bef3-90b598fc51d8.html" target="_blank" rel="noopener noreferrer" class="cfoj-article-link">
+                            Read on Columbia Missourian <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </article>
+
+                    <!-- Article 3: The Maneater -->
+                    <article class="cfoj-article-card">
+                        <div class="cfoj-card-top">
+                            <span class="cfoj-press-tag maneater-tag">
+                                <i class="fas fa-graduation-cap"></i> The Maneater
+                            </span>
+                            <span class="cfoj-press-date">September 19, 2026</span>
+                        </div>
+                        <h3 class="cfoj-article-title">
+                            <a href="https://themaneater.com/136648/news/wisdom-in-spirit-education-columbia-holds-chariot-festival-of-joy/" target="_blank" rel="noopener noreferrer">
+                                Wisdom in Spirit Education Columbia holds Chariot Festival of Joy
+                            </a>
+                        </h3>
+                        <p class="cfoj-article-quote">
+                            &ldquo;Festival attendees celebrated Krishna through dance, food and Hare Krishna mantra chanting at Stephens Lake Park.&rdquo;
+                        </p>
+                        <a href="https://themaneater.com/136648/news/wisdom-in-spirit-education-columbia-holds-chariot-festival-of-joy/" target="_blank" rel="noopener noreferrer" class="cfoj-article-link">
+                            Read on The Maneater <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </article>
                 </div>
 
-                <!-- Event Details & Resources Cards Container -->
-                <div style="display:flex;flex-direction:column;gap:18px;margin-bottom:24px;">
-                    <!-- Card 1: EVENT DETAILS -->
-                    <div class="cfoj-info-card">
-                        <div class="cfoj-card-heading">EVENT DETAILS</div>
-                        <div class="cfoj-details-list">
-                            <div class="cfoj-detail-item">
-                                <i class="fas fa-calendar-alt cfoj-detail-icon"></i>
-                                <span>Friday, September 12, 2026 &bull; 11:00 AM &#8211; 6:00 PM</span>
-                            </div>
-                            <div class="cfoj-detail-item">
-                                <i class="fas fa-clock cfoj-detail-icon"></i>
-                                <span>Open to the Public &#8212; All Are Welcome!</span>
-                            </div>
-                            <div class="cfoj-detail-item">
-                                <i class="fas fa-map-marker-alt cfoj-detail-icon"></i>
-                                <a href="https://maps.google.com/?q=Stephens+Lake+Park,+2001+E+Broadway,+Columbia,+MO+65201" target="_blank" rel="noopener noreferrer" class="cfoj-map-link">
-                                    <span>Stephens Lake Park, 2001 E Broadway, Columbia, MO, 65201</span>
-                                    <i class="fas fa-external-link-alt" style="font-size:0.75rem;margin-left:4px;opacity:0.8;"></i>
-                                </a>
-                            </div>
-                            <div class="cfoj-detail-item">
-                                <i class="fas fa-ticket-alt cfoj-detail-icon"></i>
-                                <span>Free Entry &amp; Vegetarian Feast</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2: EVENT RESOURCES -->
-                    <div class="cfoj-info-card">
-                        <div class="cfoj-card-heading">EVENT RESOURCES</div>
-                        <div class="cfoj-resources-list">
-                            <!-- Program Schedule -->
-                            <a href="assets/docs/CFOJ2026-Program-Schedule.pdf" download="CFOJ2026-Program-Schedule.pdf" class="cfoj-btn-schedule">
-                                <div class="cfoj-btn-content">
-                                    <i class="fas fa-file-alt cfoj-file-icon"></i>
-                                    <div>
-                                        <div class="cfoj-btn-title cfoj-dark-txt">Program Schedule</div>
-                                        <div class="cfoj-btn-sub cfoj-dark-sub">Download PDF</div>
-                                    </div>
-                                </div>
-                                <i class="fas fa-download cfoj-dl-icon cfoj-dark-txt"></i>
-                            </a>
-
-                            <!-- Event Map -->
-                            <a href="assets/docs/CFOJ2026-Event-Map.pdf" download="CFOJ2026-Event-Map.pdf" class="cfoj-btn-map">
-                                <div class="cfoj-btn-content">
-                                    <i class="fas fa-map cfoj-map-icon"></i>
-                                    <div>
-                                        <div class="cfoj-btn-title cfoj-light-txt">Event Map</div>
-                                        <div class="cfoj-btn-sub cfoj-light-sub">Download PDF</div>
-                                    </div>
-                                </div>
-                                <i class="fas fa-download cfoj-dl-icon cfoj-map-dl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sponsor Action Button (Centered) -->
-                <div style="display:flex;justify-content:center;margin-top:10px;">
-                    <a href="donate.html#chariot-sponsorship" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#D97706,#F59E0B);color:white;padding:14px 34px;border-radius:50px;font-weight:700;font-size:0.95rem;text-decoration:none;box-shadow:0 6px 20px rgba(217,119,6,0.35);transition:transform 0.2s ease,box-shadow 0.2s ease;text-align:center;">
-                        <i class="fas fa-hand-holding-heart"></i> Sponsor This Event
+                <!-- Action Buttons (Centered) -->
+                <div style="display:flex;justify-content:center;gap:16px;margin-top:24px;flex-wrap:wrap;">
+                    <a href="donate.html" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#D97706,#F59E0B);color:white;padding:13px 30px;border-radius:50px;font-weight:700;font-size:0.92rem;text-decoration:none;box-shadow:0 6px 20px rgba(217,119,6,0.35);transition:transform 0.2s ease,box-shadow 0.2s ease;text-align:center;">
+                        <i class="fas fa-hand-holding-heart"></i> Support WISE Initiatives
+                    </a>
+                    <a href="programs.html" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:white;padding:13px 26px;border-radius:50px;font-weight:600;font-size:0.92rem;text-decoration:none;transition:background 0.2s ease;">
+                        Explore All Programs <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -188,171 +206,6 @@
     </section>
 
     <style>
-        #cfoj-countdown {
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-            gap: 10px;
-            max-width: 420px;
-            width: 100%;
-        }
-        .cfoj-unit {
-            flex: 1 1 0;
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 12px;
-            padding: 12px 6px;
-            box-sizing: border-box;
-        }
-        .cfoj-num {
-            font-size: clamp(1.2rem, 4.5vw, 2.2rem);
-            font-weight: 800;
-            color: #D4AF37;
-            line-height: 1;
-            font-variant-numeric: tabular-nums;
-        }
-        .cfoj-label {
-            font-size: clamp(0.55rem, 1.8vw, 0.65rem);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.5);
-            margin-top: 5px;
-        }
-        .cfoj-sep {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: rgba(212, 175, 55, 0.45);
-            align-self: center;
-            margin-top: -6px;
-            flex-shrink: 0;
-        }
-
-        /* Styled Cards matching user reference */
-        .cfoj-info-card {
-            background: rgba(18, 32, 58, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 24px 26px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(8px);
-        }
-        .cfoj-card-heading {
-            color: #E5A93C;
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        .cfoj-details-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .cfoj-detail-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            color: #FFFFFF;
-            font-size: 0.96rem;
-            font-weight: 500;
-        }
-        .cfoj-detail-icon {
-            color: #E5A93C;
-            font-size: 1.15rem;
-            width: 22px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-        .cfoj-map-link {
-            color: #FFFFFF;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            flex-wrap: wrap;
-            transition: color 0.2s ease;
-        }
-        .cfoj-map-link:hover {
-            color: #E5A93C;
-            text-decoration: underline;
-        }
-
-        /* Resources List */
-        .cfoj-resources-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .cfoj-btn-schedule {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 14px;
-            background: #D4A32A;
-            color: #0F172A;
-            padding: 15px 20px;
-            border-radius: 14px;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-            box-shadow: 0 4px 14px rgba(212, 163, 42, 0.3);
-        }
-        .cfoj-btn-schedule:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.05);
-            box-shadow: 0 6px 20px rgba(212, 163, 42, 0.45);
-        }
-        .cfoj-btn-map {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 14px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            color: #FFFFFF;
-            padding: 15px 20px;
-            border-radius: 14px;
-            text-decoration: none;
-            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-        }
-        .cfoj-btn-map:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.14);
-            border-color: rgba(229, 169, 60, 0.5);
-        }
-        .cfoj-btn-content {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .cfoj-file-icon {
-            font-size: 1.5rem;
-            color: #0F172A;
-        }
-        .cfoj-map-icon {
-            font-size: 1.4rem;
-            color: #E5A93C;
-        }
-        .cfoj-btn-title {
-            font-size: 1rem;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-        .cfoj-btn-sub {
-            font-size: 0.78rem;
-            margin-top: 2px;
-        }
-        .cfoj-dark-txt { color: #0F172A; }
-        .cfoj-dark-sub { color: rgba(15, 23, 42, 0.75); font-weight: 600; }
-        .cfoj-light-txt { color: #FFFFFF; }
-        .cfoj-light-sub { color: rgba(255, 255, 255, 0.6); font-weight: 500; }
-        .cfoj-dl-icon { font-size: 1.15rem; }
-        .cfoj-map-dl { color: rgba(255, 255, 255, 0.7); }
-
         /* Layout Grid & Spacing */
         #cfoj-spotlight {
             padding: 50px 4% 60px 4% !important;
@@ -367,7 +220,7 @@
             align-items: start;
             max-width: 1320px;
             margin: 0 auto;
-            gap: 0 24px;
+            gap: 0 28px;
         }
         .cfoj-header-block {
             grid-area: header;
@@ -377,8 +230,9 @@
             grid-area: photo;
             padding: 10px 16px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             align-self: stretch;
         }
         .cfoj-photo-card {
@@ -412,12 +266,146 @@
             line-height: 1;
             z-index: 2;
         }
+        .cfoj-recap-card {
+            background: rgba(18, 32, 58, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 18px 20px;
+            margin-top: 16px;
+            width: 100%;
+            max-width: 460px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        .cfoj-archive-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .cfoj-archive-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: #E5A93C;
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        .cfoj-map-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            transition: color 0.2s ease;
+        }
+        .cfoj-map-link:hover {
+            color: #E5A93C;
+            text-decoration: underline;
+        }
         .cfoj-body-col {
             grid-area: body;
             padding: 16px 24px 10px 24px;
         }
 
-        /* Mobile Layout: Header -> Photo -> Details */
+        /* Press Article Cards */
+        .cfoj-press-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .cfoj-article-card {
+            background: rgba(18, 32, 58, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px 24px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+        }
+        .cfoj-article-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(212, 175, 55, 0.45);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+        }
+        .cfoj-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .cfoj-press-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .missourian-tag {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #E5A93C;
+        }
+        .maneater-tag {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #F59E0B;
+        }
+        .cfoj-press-date {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+        }
+        .cfoj-article-title {
+            margin: 0 0 8px 0;
+            font-size: 1.12rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+        .cfoj-article-title a {
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .cfoj-article-title a:hover {
+            color: #E5A93C;
+        }
+        .cfoj-article-quote {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin: 0 0 12px 0;
+            font-style: italic;
+        }
+        .cfoj-article-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #E5A93C;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: gap 0.2s ease, color 0.2s ease;
+        }
+        .cfoj-article-link:hover {
+            color: #F59E0B;
+            gap: 9px;
+            text-decoration: underline;
+        }
+
+        /* Mobile Layout: Header -> Photo -> Press Cards */
         @media (max-width: 900px) {
             #cfoj-spotlight {
                 padding: 36px 4% 40px 4% !important;
@@ -447,66 +435,8 @@
                 order: 3;
                 padding: 0 8px 10px 8px;
             }
-            #cfoj-countdown {
-                gap: 6px;
-            }
-            .cfoj-unit {
-                padding: 10px 4px;
-                border-radius: 10px;
-            }
-            .cfoj-sep {
-                display: none;
-            }
         }
     </style>
-    <script>
-        (function(){
-            var target = new Date("2026-09-12T11:00:00");
-            var badge = document.getElementById("cfoj-badge");
-            var section = document.getElementById("cfoj-spotlight");
-
-            function pad(n){ return String(n).padStart(2, "0"); }
-
-            function tick(){
-                var now = new Date();
-                var diff = target - now;
-
-                // After event day has passed (24h past target), remove entire spotlight section
-                if (diff <= -86400000) {
-                    if (section) section.remove();
-                    return;
-                }
-
-                // When time counter reaches 0, remove the time counter itself
-                if (diff <= 0) {
-                    var countdownWrap = document.getElementById("cfoj-countdown-wrap");
-                    if (countdownWrap && countdownWrap.parentNode) {
-                        countdownWrap.remove();
-                    }
-                    if (badge) {
-                        badge.innerHTML = '<span style="width:8px;height:8px;background:#22c55e;border-radius:50%;animation:cfoj-pulse 1s infinite;"></span> Happening Today!';
-                    }
-                    return;
-                }
-
-                // Update countdown digits
-                var daysEl = document.getElementById("cfoj-days");
-                var hoursEl = document.getElementById("cfoj-hours");
-                var minEl = document.getElementById("cfoj-minutes");
-                var secEl = document.getElementById("cfoj-seconds");
-
-                if (daysEl && hoursEl && minEl && secEl) {
-                    daysEl.querySelector(".cfoj-num").textContent = pad(Math.floor(diff / 86400000));
-                    hoursEl.querySelector(".cfoj-num").textContent = pad(Math.floor((diff % 86400000) / 3600000));
-                    minEl.querySelector(".cfoj-num").textContent = pad(Math.floor((diff % 3600000) / 60000));
-                    secEl.querySelector(".cfoj-num").textContent = pad(Math.floor((diff % 60000) / 1000));
-                }
-            }
-
-            tick();
-            setInterval(tick, 1000);
-        })();
-    </script>
 
     <!-- Introduction Section -->
     <section id="introduction" style="padding-top: 60px; padding-bottom: 0;">
