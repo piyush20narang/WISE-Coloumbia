@@ -122,7 +122,7 @@ async function main() {
     }
 
     // 5. Ask for Category
-    const category = await ask('\n🏷️ Enter category tag for Gallery (e.g. Chariot Festival): ');
+    const category = await ask('\n🏷️ Enter category tag for Gallery (e.g. 2026 Chariot Festival of joy - Kids): ');
     if (!category) {
         console.error('❌ Error: Category is required.');
         process.exit(1);
